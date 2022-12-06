@@ -23,20 +23,8 @@ DROP TABLE IF EXISTS collection;
 CREATE TABLE collection (
 collection_id SERIAL,
 collection_name varchar (50) NOT NULL UNIQUE,
-username varchar (50) NOT NULL,
-comic_name varchar (50) NOT NULL,
 CONSTRAINT PK_collection PRIMARY KEY (collection_id),
-CONSTRAINT collection_username_key UNIQUE (username),
-CONSTRAINT FK_comic_name FOREIGN KEY (comic_name)
-    REFERENCES comic (comic_name) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID,
-CONSTRAINT FK_username FOREIGN KEY (username)
-    REFERENCES users (username) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID
+CONSTRAINT collection_collection_name_key UNIQUE (collection_name)
 );
 
 COMMIT TRANSACTION;
@@ -50,10 +38,17 @@ comic_id SERIAL,
 comic_name varchar (50) NOT NULL UNIQUE,
 author varchar (50) NOT NULL,
 release_date date NOT NULL,
+collection_id integer NOT NULL,
 CONSTRAINT PK_comic PRIMARY KEY (comic_id)
     INCLUDE(comic_id),
+CONSTRAINT comic_comic_name_key UNIQUE (comic_name),
 CONSTRAINT comic_name UNIQUE (comic_name)
     INCLUDE(comic_name)
+CONSTRAINT collection_id FOREIGN KEY (collection_id)
+    REFERENCES collection (collection_id) MATCH SIMPLE
+    ON UPDATE NO ACTION
+    ON DELETE NO ACTION
+    NOT VALID
 );
 
 COMMIT TRANSACTION;

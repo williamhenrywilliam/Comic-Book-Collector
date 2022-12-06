@@ -4,11 +4,11 @@ UPDATE public.users
 
 
 UPDATE public.comic
-	SET comic_id=?, comic_name=?, author=?, release_date=?
+	SET comic_id=?, comic_name=?, author=?, release_date=?, collection_id=?
 	WHERE <condition>;
 
 
 
 UPDATE public.collection
-	SET collection_id=?, collection_name=?, username=?, comic_name=?
+	SET collection_id=?, collection_name=?
 	WHERE <condition>;
