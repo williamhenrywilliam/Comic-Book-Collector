@@ -57,8 +57,6 @@ public class JdbcCollectionDao implements CollectionDao {
     private Collection mapRowToCollection(SqlRowSet rs) {
         Collection collection = new Collection();
         collection.setCollectionId(rs.getInt("collection_id"));
-        collection.setUserName(rs.getString("username"));
-        collection.setComic_name(rs.getString("comic_name"));
         collection.setCollectionName(rs.getNString("collection_name"));
         return collection;
     }
