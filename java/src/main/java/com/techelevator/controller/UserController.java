@@ -41,10 +41,14 @@ public class UserController {
         return userDao.findAll();
     }
 
-    @RequestMapping(value = "/id/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
     public User getUserById(@PathVariable int userId){return userDao.getUserById(userId);}
 
+    @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
+    public int findIdByUsername(@PathVariable String username){return userDao.findIdByUsername(username);}
 
+    @RequestMapping(value = "/{username}", method = RequestMethod.GET)
+    public User findByUsername(@PathVariable String username){return userDao.findByUsername((username));}
 
 
 
