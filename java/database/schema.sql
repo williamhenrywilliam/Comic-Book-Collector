@@ -11,6 +11,8 @@ CREATE TABLE users (
 	CONSTRAINT users_username_key UNIQUE (username)
 );
 
+
+
 COMMIT TRANSACTION;
 
 
