@@ -43,7 +43,7 @@ CONSTRAINT PK_comic PRIMARY KEY (comic_id)
     INCLUDE(comic_id),
 CONSTRAINT comic_comic_name_key UNIQUE (comic_name),
 CONSTRAINT comic_name UNIQUE (comic_name)
-    INCLUDE(comic_name)
+    INCLUDE(comic_name),
 CONSTRAINT collection_id FOREIGN KEY (collection_id)
     REFERENCES collection (collection_id) MATCH SIMPLE
     ON UPDATE NO ACTION
