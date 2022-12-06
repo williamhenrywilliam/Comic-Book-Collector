@@ -4,11 +4,11 @@ INSERT INTO public.users(
 
 
 INSERT INTO public.comic(
-	comic_id, comic_name, author, release_date)
-	VALUES (?, ?, ?, ?);
+	comic_id, comic_name, author, release_date, collection_id)
+	VALUES (?, ?, ?, ?, ?);
 
 
 
 INSERT INTO public.collection(
-	collection_id, collection_name, username, comic_name)
-	VALUES (?, ?, ?, ?);
+	collection_id, collection_name)
+	VALUES (?, ?);
