@@ -24,7 +24,7 @@ CREATE TABLE collection (
 collection_id SERIAL,
 collection_name varchar (50) NOT NULL UNIQUE,
 username varchar (50) NOT NULL,
-comic_name (varchar) (50) NOT NULL,
+comic_name varchar (50) NOT NULL,
 CONSTRAINT PK_collection PRIMARY KEY (collection_id),
 CONSTRAINT collection_username_key UNIQUE (username),
 CONSTRAINT FK_comic_name FOREIGN KEY (comic_name)
