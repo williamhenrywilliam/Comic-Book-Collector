@@ -4,6 +4,7 @@ import com.techelevator.model.Collection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class JdbcCollectionDao implements CollectionDao {
@@ -16,12 +17,26 @@ public class JdbcCollectionDao implements CollectionDao {
 
     @Override
     public List<Collection> findAll() {
-        return null;
+        List<Collection> collections = new ArrayList<>();
+        String sql = "SELECT collection_id, collection_name FROM collection;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()){
+            Collection collection = mapRowToCollection(results);
+            collections.add(collection);
+        }
+        return collections;
     }
 
     @Override
     public Collection getCollectionById(int collectionId) {
-        return null;
+        String sql = "SELECT collection_id, collection_name FROM collection WHERE user_id = ?;";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        if (results.next()){
+            return mapRowToCollection(results);
+        } else{
+            return null;
+        }
     }
 
     @Override
@@ -34,12 +49,15 @@ public class JdbcCollectionDao implements CollectionDao {
         return null;
     }
 
-    /*private Collection mapRowToCollection(SqlRowSet rs) {
+    @Override
+    public Collection findByCollectionName(String collection_Name) {
+        return null;
+    }
+
+    private Collection mapRowToCollection(SqlRowSet rs) {
         Collection collection = new Collection();
-        Collection.setCollectionId(rs.getInt("collection_id"));
-        Collection.setUserName(rs.getString("username"));
-        Collection.setComic_name(rs.getString("comic_name"));
-        Collection.setCollectionName(rs.getNString("collection_name"));
+        collection.setCollectionId(rs.getInt("collection_id"));
+        collection.setCollectionName(rs.getNString("collection_name"));
         return collection;
-    } */
+    }
 }

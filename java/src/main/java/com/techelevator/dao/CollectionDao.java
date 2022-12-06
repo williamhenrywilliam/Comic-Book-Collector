@@ -15,4 +15,6 @@ public interface CollectionDao {
 
     Collection findByComicName(String comicName);
 
+    Collection findByCollectionName(String collection_Name);
+
 }
