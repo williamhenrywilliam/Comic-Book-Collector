@@ -42,7 +42,7 @@ public class JdbcCollectionDao implements CollectionDao {
     }
 
     @Override
-    public Collection findByCollectionName(String collection_Name) {
+    public Collection findByCollectionName(String collectionName) {
         return null;
     }
 

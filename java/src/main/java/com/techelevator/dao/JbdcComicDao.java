@@ -21,7 +21,7 @@ public class JbdcComicDao implements ComicDao {
     @Override
     public List <Comic> findAll(){
         List<Comic> comic = new ArrayList<>();
-        String sql = "";
+        String sql = "SELECT * FROM comic";
 
        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
