@@ -10,7 +10,7 @@ public class Collection {
 
     }
 
-    public Collection(int collectionId, String collection_Name, String userName, String comic_name) {
+    public Collection(int collectionId, String collection_Name) {
         this.collectionId = collectionId;
         this.collection_Name = collection_Name;
     }
