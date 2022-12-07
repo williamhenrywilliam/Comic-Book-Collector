@@ -38,7 +38,7 @@ public class JdbcUserDao implements UserDao {
 
 	@Override
 	public User getUserById(int userId) {
-		String sql = "SELECT user_id, username, password_hash FROM users WHERE user_id = ?";
+		String sql = "SELECT * FROM users WHERE user_id = ?";
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
 		if (results.next()) {
 			return mapRowToUser(results);
