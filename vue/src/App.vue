@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <body>
+      
       <header> 
         <div id="nav">
           <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
@@ -16,6 +17,7 @@
       <footer>
         <footer-box />
       </footer>
+
     </body>
   </div>
 </template>
