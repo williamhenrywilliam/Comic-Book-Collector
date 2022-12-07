@@ -15,17 +15,21 @@
     </div>
 
     <div class="featured-collection">
-      <p>featured collection will go here </p>
+      <comic-book-collection />
     </div>
     
   </div>
 </template>
 
 <script>
+import ComicBookCollection from '../components/ComicBookCollection.vue'
 
 export default {
+  components: { 
+    ComicBookCollection
+  },
   name: "home",
-};
+}
 </script>
 
 <style scoped>
