@@ -9,13 +9,13 @@ public interface ComicDao {
 
     List<Comic> findAll();
 
-    Comic getComicById(int comic_id);
+    Comic getComicById(int comicId);
 
-    Comic findByComicName (String comic_name);
+    Comic findByComicName (String comicName);
 
     Comic findByAuthor(String author);
 
-    Comic findIdByComicName(String comic_name);
+    Comic findIdByComicName(String comicName);
 
     Comic createComic(Comic comic);
 
