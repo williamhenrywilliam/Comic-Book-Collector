@@ -11,10 +11,8 @@ public interface CollectionDao {
 
     Collection getCollectionById(int collectionId);
 
-    Collection findByUserName(String userName);
-
-    Collection findByComicName(String comicName);
-
     Collection findByCollectionName(String collection_Name);
+
+    Collection createCollection(Collection collection);
 
 }

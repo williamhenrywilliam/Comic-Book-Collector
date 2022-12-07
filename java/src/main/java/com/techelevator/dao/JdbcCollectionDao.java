@@ -40,18 +40,15 @@ public class JdbcCollectionDao implements CollectionDao {
     }
 
     @Override
-    public Collection findByUserName(String userName) {
-        return null;
-    }
-
-    @Override
-    public Collection findByComicName(String comicName) {
-        return null;
-    }
-
-    @Override
     public Collection findByCollectionName(String collection_Name) {
         return null;
+    }
+
+    @Override
+    public Collection createCollection(Collection collection) {
+        String sql = "INSERT INTO collection (collection_name) VALUES (?) returning collection_id;";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, collection.getCollectionName());
+        return getCollectionById(newId);
     }
 
     private Collection mapRowToCollection(SqlRowSet rs) {
