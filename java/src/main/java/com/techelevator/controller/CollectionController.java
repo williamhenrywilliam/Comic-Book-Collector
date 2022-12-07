@@ -15,9 +15,9 @@ public class CollectionController {
 
     private CollectionDao collectionDao;
 
-    /*public  CollectionController(CollectionDao collectionDao){
+    public  CollectionController(CollectionDao collectionDao){
         this.collectionDao = collectionDao;
-    }*/
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(value = "", method = RequestMethod.POST)
