@@ -1,6 +1,8 @@
 package com.techelevator.controller;
 
+import com.techelevator.dao.CollectionDao;
 import com.techelevator.dao.ComicDao;
+import com.techelevator.model.Collection;
 import com.techelevator.model.Comic;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -10,43 +12,28 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.List;
 
 @RestController
+@CrossOrigin
+@RequestMapping("/comic")
 public class ComicController {
 
     private ComicDao comicDao;
 
-@RequestMapping(path = "/comics", method = RequestMethod.GET)
-public List<Comic> findAll(){return comicDao.findAll();}
-
-
-@RequestMapping(path = "/comics/{id}", method = RequestMethod.GET)
-public Comic getComicById(@PathVariable int id){
-    Comic comic = comicDao.getComicById(id);
-    if (comic == null) {
-        throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Comic not found.");
-    } else {
-        return comic;
+    public ComicController(ComicDao comicDao){
+        this.comicDao = comicDao;
     }
-}
 
-@RequestMapping(path = "/comics/author", method = RequestMethod.GET)
- public Comic findByAuthor () {return comicDao.findByAuthor(findByAuthor().getAuthor());}
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "", method = RequestMethod.POST)
+    public Comic createComic(@RequestBody Comic comic){
+        return comicDao.createComic(comic);}
+
+    @RequestMapping(path = "", method = RequestMethod.GET)
+    public List<Comic> findAll(){
+        return comicDao.findAll();
+    }
+
+}
 
 //@RequestMapping(path = "/comicname", method = RequestMethod.GET)
 //public Comic comic{return comicDao.findByComicName();}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-}
