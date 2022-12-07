@@ -3,10 +3,12 @@ package com.techelevator.dao;
 import com.techelevator.model.Collection;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcCollectionDao implements CollectionDao {
 
     private final JdbcTemplate jdbcTemplate;
@@ -18,7 +20,7 @@ public class JdbcCollectionDao implements CollectionDao {
     @Override
     public List<Collection> findAll() {
         List<Collection> collections = new ArrayList<>();
-        String sql = "SELECT collection_id, collection_name FROM collection;";
+        String sql = "SELECT * FROM collection";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()){
@@ -40,18 +42,15 @@ public class JdbcCollectionDao implements CollectionDao {
     }
 
     @Override
-    public Collection findByUserName(String userName) {
-        return null;
-    }
-
-    @Override
-    public Collection findByComicName(String comicName) {
-        return null;
-    }
-
-    @Override
     public Collection findByCollectionName(String collection_Name) {
         return null;
+    }
+
+    @Override
+    public Collection createCollection(Collection collection) {
+        String sql = "INSERT INTO collection (collection_name) VALUES (?) returning collection_id;";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, collection.getCollectionName());
+        return getCollectionById(newId);
     }
 
     private Collection mapRowToCollection(SqlRowSet rs) {
