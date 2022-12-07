@@ -14,7 +14,7 @@ public interface ComicDao {
 
     Comic findByAuthor(String author);
 
-    int findIdByComicName(String comic_name);
+    Comic findIdByComicName(String comic_name);
 
 
 
