@@ -1,5 +1,6 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Comic {
@@ -7,15 +8,26 @@ public class Comic {
    private int comic_id;
    private String comic_name;
    private String author;
-    private Date release_date;
+   private LocalDate release_date;
+   private int collectionId;
+
+    public int getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(int collectionId) {
+        this.collectionId = collectionId;
+    }
+
 
     public Comic (){}
 
-    public Comic(int comic_id, String comic_name, String author, Date release_date) {
+    public Comic(int comic_id, String comic_name, String author, LocalDate release_date, int collectionId) {
         this.comic_id = comic_id;
         this.comic_name = comic_name;
         this.author = author;
         this.release_date = release_date;
+        this.collectionId = collectionId;
     }
 
     public void setComic_id(int comic_id) {
@@ -30,11 +42,11 @@ public class Comic {
         this.author = author;
     }
 
-    public void setRelease_date(Date release_date) {
+    public void setRelease_date(LocalDate release_date) {
         this.release_date = release_date;
     }
 
-    public void setCollection_id(int collection_id){this.collection_id = collection_id;}
+
 
 
 
@@ -51,7 +63,7 @@ public class Comic {
         return author;
     }
 
-    public Date getRelease_date() {
+    public LocalDate getRelease_date() {
         return release_date;
     }
 

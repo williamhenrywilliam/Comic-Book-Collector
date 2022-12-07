@@ -29,5 +29,8 @@ public class CollectionController {
         return collectionDao.findAll();
     }
 
+    @RequestMapping(path = "/{id}", method = RequestMethod.GET)
+    public Collection getCollectionById(@PathVariable int id){return collectionDao.getCollectionById(id);}
+
 
 }
