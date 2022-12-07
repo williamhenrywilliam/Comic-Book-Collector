@@ -15,7 +15,7 @@ public class CollectionController {
 
     private CollectionDao collectionDao;
 
-    public  CollectionController(CollectionDao collectionDao){
+    public CollectionController(CollectionDao collectionDao){
         this.collectionDao = collectionDao;
     }
 
