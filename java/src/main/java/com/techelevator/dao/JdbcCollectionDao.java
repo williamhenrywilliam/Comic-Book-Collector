@@ -48,7 +48,7 @@ public class JdbcCollectionDao implements CollectionDao {
 
     @Override
     public Collection createCollection(Collection collection) {
-        String sql = "INSERT INTO collection (collection_name) VALUES (?) returning collection_id;";
+        String sql = "INSERT INTO collection (collection_name) VALUES (?) returning collection_id";
         int newId = jdbcTemplate.queryForObject(sql, int.class, collection.getCollectionName());
         return getCollectionById(newId);
     }
@@ -56,7 +56,7 @@ public class JdbcCollectionDao implements CollectionDao {
     private Collection mapRowToCollection(SqlRowSet rs) {
         Collection collection = new Collection();
         collection.setCollectionId(rs.getInt("collection_id"));
-        collection.setCollectionName(rs.getNString("collection_name"));
+        collection.setCollectionName(rs.getString("collection_name"));
         return collection;
     }
 }

@@ -22,7 +22,7 @@ public class Comic {
         this.comic_id = comic_id;
     }
 
-    public void setComic_name(String comic_name) {
+    public void setComicName(String comic_name) {
         this.comic_name = comic_name;
     }
 
@@ -34,6 +34,8 @@ public class Comic {
         this.release_date = release_date;
     }
 
+    public void setCollection_id(int collection_id){this.collection_id = collection_id;}
+
 
 
 
@@ -41,7 +43,7 @@ public class Comic {
         return comic_id;
     }
 
-    public String getComic_name() {
+    public String getComicName() {
         return comic_name;
     }
 

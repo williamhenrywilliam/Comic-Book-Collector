@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 
+import com.techelevator.model.Collection;
 import com.techelevator.model.Comic;
 import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -80,7 +81,14 @@ public class JbdcComicDao implements ComicDao {
         Comic comic = new Comic();
         comic.setComic_id(rowSet.getInt("comic_id"));
         comic.setAuthor(rowSet.getString("author"));
-       comic.setComic_name(rowSet.getString("comic_name"));
+       comic.setComicName(rowSet.getString("comic_name"));
        return comic;
+    }
+
+    @Override
+    public Comic createComic(Comic comic) {
+        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id) VALUES (?, ?, ?, ?) returning collection_id";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName());
+        return getComicById(newId);
     }
 }
