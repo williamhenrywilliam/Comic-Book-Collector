@@ -1,14 +1,17 @@
 <template>
   <div class="comic-book-card">
-      <h2 class="comic-book-title">Title of Comic</h2>
+      <h2 class="comic-book-title">{{comic.title}}</h2>
       <p>picture of comic</p>
-      <h3>author of comic</h3>
+      <h3>{{comic.author}}</h3>
   </div>
 </template>
 
 <script>
 export default {
     name: 'comic-book-card',
+    props: {
+        comic: Object
+    }
     
 }
 </script>

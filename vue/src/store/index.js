@@ -20,7 +20,7 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    //adding in code here vvv
+    //adding in code here vvv. THIS IS TEMPORARY. WILL NEED TO DYNAMICALLY PULL FROM DATABASE
     comics: [
       {
         title: "Spiderman #1",
@@ -36,6 +36,10 @@ export default new Vuex.Store({
       },
       {
         title: "Black Panther #1",
+        author: "Stan Lee",
+      },
+      {
+        title: "Iron Man #1",
         author: "Stan Lee",
       }
     ]

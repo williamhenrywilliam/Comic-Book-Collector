@@ -2,7 +2,7 @@
   <section>
     <h2>This is a Comic book collection </h2>
     <div class="comic-book-collection">   
-        <comic-book-card v-for="comic in $store.state.comics" v-bind:key="comic.title"/>
+        <comic-book-card v-for="comic in $store.state.comics" v-bind:comic="comic" v-bind:key="comic.title"/>
     </div>
   </section>
 </template>
