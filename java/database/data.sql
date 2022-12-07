@@ -6,6 +6,8 @@ INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpUL
 INSERT INTO comic (comic_name,author,release_date,collection_id) VALUES ('Age Of Ultron', 'Brian Michael Bendis', '2013-03-06', '1');
 INSERT INTO collection (collection_name) VALUES ('Avengers');
 
+
+
 COMMIT TRANSACTION;
 
 
