@@ -43,7 +43,7 @@ public class JbdcComicDao implements ComicDao {
     }
 
     @Override
-    public Comic findByComicName(String comicName){
+    public Comic getByComicName(String comicName){
         String sql = "";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicName);
         if (results.next()) {

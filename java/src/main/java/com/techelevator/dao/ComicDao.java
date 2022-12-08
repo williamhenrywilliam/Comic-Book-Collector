@@ -11,13 +11,15 @@ public interface ComicDao {
 
     Comic getComicById(int comicId);
 
-    Comic findByComicName (String comicName);
+    Comic getByComicName (String comicName);
 
     Comic findByAuthor(String author);
 
     Comic findIdByComicName(String comicName);
 
     Comic createComic(Comic comic);
+
+
 
 
 
