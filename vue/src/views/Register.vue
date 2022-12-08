@@ -90,4 +90,16 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+
+form.form-register{
+   width: 500px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
+  height: 700px;
+}
+
+
+
+
+</style>
