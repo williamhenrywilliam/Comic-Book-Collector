@@ -4,11 +4,11 @@ import java.time.LocalDate;
 
 public class Comic {
 
-   private int comicId;
-   private String comicName;
-   private String author;
-   private LocalDate releaseDate;
-   private int collectionId;
+    private int comicId;
+    private String comicName;
+    private String author;
+    private LocalDate releaseDate;
+    private int collectionId;
 
     public int getCollectionId() {
         return collectionId;
