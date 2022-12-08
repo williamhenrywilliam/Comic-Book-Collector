@@ -20,24 +20,24 @@ public class JbdcComicDao implements ComicDao {
 
     @Override
     public List <Comic> findAll(){
-        List<Comic> comic = new ArrayList<>();
+        List<Comic> comics = new ArrayList<>();
         String sql = "SELECT * FROM comic";
 
        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            comic.add(mapRowToComic(results));
+            Comic comic = mapRowToComic(results);
+            comics.add(comic);
         }
-        return comic;
+        return comics;
     }
 
     @Override
     public Comic getComicById(int comicId){
-        String sql = "";
+        String sql = "SELECT * FROM comic WHERE comic_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,comicId);
         if(results.next()){
             return mapRowToComic(results);
         }else{
-            System.out.println("ERROR: NO COMIC FOUND FOR SPECIFIED COMIC ID");
             return null;
         }
     }
@@ -88,7 +88,7 @@ public class JbdcComicDao implements ComicDao {
     @Override
     public Comic createComic(Comic comic) {
         String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id) VALUES (?, ?, ?, ?) returning comic_id";
-        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(), comic.getCollectionId());
+        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId());
         return getComicById(newId);
     }
 }
