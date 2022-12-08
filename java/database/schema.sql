@@ -38,7 +38,7 @@ comic_id SERIAL,
 comic_name varchar (50) NOT NULL UNIQUE,
 author varchar (50) NOT NULL,
 release_date date NOT NULL,
-collection_id integer NOT NULL,
+collection_id integer,
 CONSTRAINT PK_comic PRIMARY KEY (comic_id)
     INCLUDE(comic_id),
 CONSTRAINT comic_comic_name_key UNIQUE (comic_name),
