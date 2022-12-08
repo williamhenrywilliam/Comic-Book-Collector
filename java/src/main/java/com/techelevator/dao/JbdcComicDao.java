@@ -44,7 +44,7 @@ public class JbdcComicDao implements ComicDao {
 
     @Override
     public Comic getByComicName(String comicName){
-        String sql = "";
+        String sql = "SELECT * FROM comic WHERE comic_name = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicName);
         if (results.next()) {
             return mapRowToComic(results);
@@ -82,6 +82,7 @@ public class JbdcComicDao implements ComicDao {
        comic.setComicName(rowSet.getString("comic_name"));
        comic.setReleaseDate((rowSet.getDate("release_date").toLocalDate()));
        comic.setCollectionId(rowSet.getInt("collection_id"));
+
        return comic;
     }
 
