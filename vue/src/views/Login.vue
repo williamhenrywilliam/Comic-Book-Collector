@@ -80,6 +80,7 @@ form.form-signin{
   width: 500px;
   padding: 64px 15px 24px;
   margin: 0 auto;
+  height: 700px;
 }
 
 #login{
@@ -87,11 +88,13 @@ form.form-signin{
     color: #fff;
     font-family: monospace, serif;
     letter-spacing: 0.05em;
-
+    margin-top: 1em;
 }
 
+
+
 h1{
-    font-size: 23px;
+    font-size: 35px;
 }
 
 #username{
@@ -104,12 +107,11 @@ h1{
       font-family: monospace, serif;
       letter-spacing: 0.05em;
       font-size: 16px;
-      
 }
 
 #password{
    margin: 0 0 24px;
-         width: 100%;
+      width: 100%;
       padding: 14px 16px;
       border: 1px solid #fff;
       background: transparent;
@@ -117,7 +119,6 @@ h1{
       font-family: monospace, serif;
       letter-spacing: 0.05em;
       font-size: 16px;
-    
 }
 #router-link{
    margin: 0 0 24px;
@@ -129,6 +130,7 @@ h1{
       font-family: monospace, serif;
       letter-spacing: 0.05em;
       font-size: 16px;
+     
 }
 
 
