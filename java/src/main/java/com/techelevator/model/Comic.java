@@ -1,55 +1,69 @@
 package com.techelevator.model;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Comic {
 
-   private int comic_id;
-   private String comic_name;
-   private String author;
-    private Date release_date;
+    private int comicId;
+    private String comicName;
+    private String author;
+    private LocalDate releaseDate;
+    private int collectionId;
+
+    public int getCollectionId() {
+        return collectionId;
+    }
+
+    public void setCollectionId(int collectionId) {
+        this.collectionId = collectionId;
+    }
+
 
     public Comic (){}
 
-    public Comic(int comic_id, String comic_name, String author, Date release_date) {
-        this.comic_id = comic_id;
-        this.comic_name = comic_name;
+    public Comic(int comicId, String comicName, String author, LocalDate releaseDate, int collectionId) {
+        this.comicId = comicId;
+        this.comicName = comicName;
         this.author = author;
-        this.release_date = release_date;
+        this.releaseDate = releaseDate;
+        this.collectionId = collectionId;
     }
 
-    public void setComic_id(int comic_id) {
-        this.comic_id = comic_id;
+    public void setComicId(int comicId) {
+        this.comicId = comicId;
     }
 
-    public void setComicName(String comic_name) {
-        this.comic_name = comic_name;
+    public void setComicName(String comicName) {
+        this.comicName = comicName;
     }
 
     public void setAuthor(String author) {
         this.author = author;
     }
 
-    public void setRelease_date(Date release_date) {
-        this.release_date = release_date;
+    public void setReleaseDate(LocalDate releaseDate) {
+        this.releaseDate = releaseDate;
     }
 
 
 
-    public int getComic_id() {
-        return comic_id;
+
+
+
+    public int getComicId() {
+        return comicId;
     }
 
     public String getComicName() {
-        return comic_name;
+        return comicName;
     }
 
     public String getAuthor() {
         return author;
     }
 
-    public Date getRelease_date() {
-        return release_date;
+    public LocalDate getReleaseDate() {
+        return releaseDate;
     }
 
 
@@ -58,10 +72,10 @@ public class Comic {
     @Override
     public String toString() {
         return "Comic{" +
-                "comic_id=" + comic_id +
-                ", comic_name='" + comic_name + '\'' +
+                "comic_id=" + comicId +
+                ", comic_name='" + comicName + '\'' +
                 ", author=" + author +
-                ", release_date" + release_date +
+                ", release_date" + releaseDate +
                 '}';
     }
 

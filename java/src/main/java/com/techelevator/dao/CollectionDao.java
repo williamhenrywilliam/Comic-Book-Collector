@@ -11,7 +11,7 @@ public interface CollectionDao {
 
     Collection getCollectionById(int collectionId);
 
-    Collection findByCollectionName(String collection_Name);
+    Collection findByCollectionName(String collectionName);
 
     Collection createCollection(Collection collection);
 

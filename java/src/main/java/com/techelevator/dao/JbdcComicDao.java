@@ -1,9 +1,7 @@
 package com.techelevator.dao;
 
 
-import com.techelevator.model.Collection;
 import com.techelevator.model.Comic;
-import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -22,32 +20,32 @@ public class JbdcComicDao implements ComicDao {
 
     @Override
     public List <Comic> findAll(){
-        List<Comic> comic = new ArrayList<>();
-        String sql = "";
+        List<Comic> comics = new ArrayList<>();
+        String sql = "SELECT * FROM comic";
 
        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
         while (results.next()) {
-            comic.add(mapRowToComic(results));
+            Comic comic = mapRowToComic(results);
+            comics.add(comic);
         }
-        return comic;
+        return comics;
     }
 
     @Override
-    public Comic getComicById(int comic_id){
-        String sql = "";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,comic_id);
+    public Comic getComicById(int comicId){
+        String sql = "SELECT * FROM comic WHERE comic_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql,comicId);
         if(results.next()){
             return mapRowToComic(results);
         }else{
-            System.out.println("ERROR: NO COMIC FOUND FOR SPECIFIED COMIC ID");
             return null;
         }
     }
 
     @Override
-    public Comic findByComicName(String comic_name){
+    public Comic findByComicName(String comicName){
         String sql = "";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comic_name);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicName);
         if (results.next()) {
             return mapRowToComic(results);
         } else {
@@ -67,9 +65,9 @@ public class JbdcComicDao implements ComicDao {
     }
 
     @Override
-    public Comic findIdByComicName(String comic_name){
+    public Comic findIdByComicName(String comicName){
         String sql = "";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comic_name);
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, comicName);
         if (results.next()) {
             return mapRowToComic(results);
         } else {
@@ -79,16 +77,18 @@ public class JbdcComicDao implements ComicDao {
 
     private Comic mapRowToComic(SqlRowSet rowSet) {
         Comic comic = new Comic();
-        comic.setComic_id(rowSet.getInt("comic_id"));
+        comic.setComicId(rowSet.getInt("comic_id"));
         comic.setAuthor(rowSet.getString("author"));
        comic.setComicName(rowSet.getString("comic_name"));
+       comic.setReleaseDate((rowSet.getDate("release_date").toLocalDate()));
+       comic.setCollectionId(rowSet.getInt("collection_id"));
        return comic;
     }
 
     @Override
     public Comic createComic(Comic comic) {
-        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id) VALUES (?, ?, ?, ?) returning collection_id";
-        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName());
+        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id) VALUES (?, ?, ?, ?) returning comic_id";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId());
         return getComicById(newId);
     }
 }

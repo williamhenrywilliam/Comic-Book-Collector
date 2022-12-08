@@ -19,7 +19,30 @@ if(currentToken != null) {
 export default new Vuex.Store({
   state: {
     token: currentToken || '',
-    user: currentUser || {}
+    user: currentUser || {},
+    //adding in code here vvv. THIS IS TEMPORARY. WILL NEED TO DYNAMICALLY PULL FROM DATABASE
+    comics: [
+      {
+        title: "Spiderman #1",
+        author: "Stan Lee",
+      },
+      {
+        title: "Deadpool #1",
+        author: "Stan Lee",
+      },
+      {
+        title: "The Incredible Hulk #1",
+        author: "Stan Lee",
+      },
+      {
+        title: "Black Panther #1",
+        author: "Stan Lee",
+      },
+      {
+        title: "Iron Man #1",
+        author: "Stan Lee",
+      }
+    ]
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

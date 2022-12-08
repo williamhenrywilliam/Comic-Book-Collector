@@ -32,8 +32,8 @@ public class JdbcCollectionDao implements CollectionDao {
 
     @Override
     public Collection getCollectionById(int collectionId) {
-        String sql = "SELECT collection_id, collection_name FROM collection WHERE user_id = ?;";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        String sql = "SELECT * FROM collection WHERE collection_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
         if (results.next()){
             return mapRowToCollection(results);
         } else{
@@ -42,7 +42,7 @@ public class JdbcCollectionDao implements CollectionDao {
     }
 
     @Override
-    public Collection findByCollectionName(String collection_Name) {
+    public Collection findByCollectionName(String collectionName) {
         return null;
     }
 
