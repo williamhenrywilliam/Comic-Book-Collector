@@ -34,9 +34,6 @@ public class Comic {
         this.release_date = release_date;
     }
 
-    public void setCollection_id(int collection_id){this.collection_id = collection_id;}
-
-
 
 
     public int getComic_id() {
