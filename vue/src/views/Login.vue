@@ -31,7 +31,7 @@
         v-model="user.password"
         required
       />
-      <router-link :to="{ name: 'register' }">Need an account?</router-link>
+      <router-link :to="{ name: 'register' }" id= "router-link">Need an account?</router-link>
       <button type="submit">Sign in</button>
     </form>
   </div>
@@ -74,3 +74,64 @@ export default {
   }
 };
 </script>
+<style scoped>
+
+form.form-signin{
+  width: 500px;
+  padding: 64px 15px 24px;
+  margin: 0 auto;
+}
+
+#login{
+    background-color: #212121;
+    color: #fff;
+    font-family: monospace, serif;
+    letter-spacing: 0.05em;
+
+}
+
+h1{
+    font-size: 23px;
+}
+
+#username{
+      margin: 0 0 24px;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+      
+}
+
+#password{
+   margin: 0 0 24px;
+         width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+    
+}
+#router-link{
+   margin: 0 0 24px;
+         width: 100%;
+      padding: 14px 16px;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+}
+
+
+
+</style>
+
