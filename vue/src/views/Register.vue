@@ -32,7 +32,7 @@
         v-model="user.confirmPassword"
         required
       />
-      <router-link :to="{ name: 'login' }">Have an account?</router-link>
+      <router-link :to="{ name: 'login' }" id="router-link">Have an account?</router-link>
       <button class="btn btn-lg btn-primary btn-block" type="submit">
         Create Account
       </button>
@@ -93,13 +93,69 @@ export default {
 <style>
 
 form.form-register{
-   width: 500px;
+  width: 500px;
   padding: 64px 15px 24px;
   margin: 0 auto;
   height: 700px;
 }
 
+#register{
+   background-color: #212121;
+    color: #fff;
+    font-family: monospace, serif;
+    letter-spacing: 0.05em;
+    margin-top: 1em;
+}
 
+h1{
+    font-size: 35px;
+}
 
+#username{
+      margin: 0 0 24px;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+}
+#password{
+   margin: 0 0 24px;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+}
+
+#confirmPassword{
+  margin: 0 0 24px;
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+}
+
+#router-link{
+  margin: 0 0 24px;
+         width: 100%;
+      padding: 14px 16px;
+      border: 0;
+      background: transparent;
+      color: #fff;
+      font-family: monospace, serif;
+      letter-spacing: 0.05em;
+      font-size: 16px;
+}
 
 </style>

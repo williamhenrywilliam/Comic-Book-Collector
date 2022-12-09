@@ -48,7 +48,8 @@ export default {
 
 header {
   grid-area: header;
-  background-color: burlywood;
+  background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+  height: 3rem;
 }
 
 main {
