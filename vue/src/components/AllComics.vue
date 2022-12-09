@@ -1,10 +1,17 @@
 <template>
   <div id="all-comics">
-      <span v-for="comic in comics" v-bind:key="comic.comic_id" class="comic"> 
-        <span>{{comic.comicName}}</span>
-        <span>{{comic.author}}</span>
-        <span>{{comic.releaseDate}}</span>
-      </span>
+      <div id="search-bar">
+        <input type="text" placeholder="Search Comics..." v-model="searchText">
+      </div>
+      
+      <div id="comics-container">
+        <span v-for="comic in searchedComics" v-bind:key="comic.comic_id" class="comic"> 
+            <span>{{comic.comicName}}</span>
+            <span>{{comic.author}}</span>
+            <span>{{comic.releaseDate}}</span>
+        </span>
+      </div>
+
   </div>
 </template>
 
@@ -14,16 +21,23 @@ import ComicService from "../services/ComicService"
 
 export default {
     name: 'all-comics',
-    
     data(){
         return {
-            comics: []
+            comics: [],
+            searchText: ''
         }
     },
     created(){
         ComicService.getAllComics().then(response =>{
             this.comics = response.data;
         })
+    },
+    computed: {
+        searchedComics(){
+            return this.comics.filter((comic) => {
+                return comic.comicName.toLowerCase().includes(this.searchText.toLowerCase()) || comic.author.toLowerCase().includes(this.searchText.toLowerCase());
+            })
+        }
     }
 
 }
@@ -44,7 +58,12 @@ span.comic {
     color: #fff;
 }
 
-#all-comics {
+#search-bar {
+    display: flex;
+    justify-content: center;
+}
+
+#comics-container {
     display: flex;
     flex-wrap: wrap;
 }

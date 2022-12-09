@@ -22,7 +22,5 @@ export default {
 <style>
 
 /*this needs to be updated*/
-section {
-  height: 800px;
-}
+
 </style>

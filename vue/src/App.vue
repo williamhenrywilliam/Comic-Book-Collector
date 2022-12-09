@@ -4,11 +4,11 @@
       
       <header> 
         <div id="nav">
-          <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-          <router-link v-bind:to="{ name: 'register' }">Register</router-link>&nbsp;|&nbsp;
-          <router-link v-bind:to="{ name: 'comics' }">Comics</router-link>&nbsp;|&nbsp;
-          <router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''">Profile</router-link>&nbsp;|&nbsp;
-          <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+          <router-link v-bind:to="{ name: 'home' }" class="router-link-nav">Home</router-link>&nbsp;&nbsp;
+          <router-link v-bind:to="{ name: 'register' }" class="router-link-nav">Register</router-link>&nbsp;&nbsp;
+          <router-link v-bind:to="{ name: 'comics' }" class="router-link-nav">Comics</router-link>&nbsp;&nbsp;
+          <router-link v-bind:to="{ name: 'profile' }" v-if="$store.state.token != ''" class="router-link-nav">Profile</router-link>&nbsp;&nbsp;
+          <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="router-link-nav">Logout</router-link>
         </div>
       </header>
       
@@ -49,7 +49,11 @@ export default {
 
 header {
   grid-area: header;
-  background-image: repeating-linear-gradient(red, yellow 10%, green 20%);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: radial-gradient(circle, rgba(5,6,3,1) 9%, rgba(20,39,130,1) 83%, rgba(30,60,210,1) 93%);
+  font-family: monospace, serif;
   height: 3rem;
 }
 
@@ -60,11 +64,32 @@ main {
 
 footer {
   grid-area: footer;
-
+  display: flex;
+  align-items: center;
+  background: radial-gradient(circle, rgba(30,60,210,1) 0%, rgba(5,6,3,1) 100%);
+  width: 100%;
+  height: 5rem;
+  color: #fff;
+  font-family: monospace, serif;
+  font-size: 12px;
 }
 
 #nav {
   text-align: center;
+}
+
+.router-link-nav {
+  color: #f6f4e6;
+  text-decoration: none;
+  font-size: 1.2em;
+  font-weight: 500;
+  display: inline-block;
+  width: 100px;
+  transition: all 0.5s ease-in-out;
+}
+
+.router-link-nav:hover {
+  color: #fddb3a;
 }
 
 

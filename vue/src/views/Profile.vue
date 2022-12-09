@@ -16,5 +16,8 @@ export default {
 </script>
 
 <style>
-
+#profile {
+  display:flex;
+  
+}
 </style>
