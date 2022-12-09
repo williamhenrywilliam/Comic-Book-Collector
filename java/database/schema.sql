@@ -22,7 +22,7 @@ DROP TABLE IF EXISTS collection;
 
 CREATE TABLE collection (
 collection_id SERIAL,
-collection_name varchar (50) NOT NULL UNIQUE,
+collection_name varchar (100) NOT NULL UNIQUE,
 CONSTRAINT PK_collection PRIMARY KEY (collection_id),
 CONSTRAINT collection_collection_name_key UNIQUE (collection_name)
 );
@@ -35,8 +35,8 @@ DROP TABLE IF EXISTS comic;
 
 CREATE TABLE comic(
 comic_id SERIAL,
-comic_name varchar (50) NOT NULL UNIQUE,
-author varchar (50) NOT NULL,
+comic_name varchar (100) NOT NULL UNIQUE,
+author varchar (100) NOT NULL,
 release_date date NOT NULL,
 collection_id integer,
 CONSTRAINT PK_comic PRIMARY KEY (comic_id)
