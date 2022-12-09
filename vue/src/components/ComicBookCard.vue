@@ -12,7 +12,6 @@ export default {
     props: {
         comic: Object
     }
-    
 }
 </script>
 

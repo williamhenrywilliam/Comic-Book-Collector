@@ -1,28 +1,20 @@
 <template>
-  <div>
-      <h1>Here is a list of comics</h1>
-
-      <table>
-          <tr>
-              <th>test header 1</th>
-              <th>test header 2</th>
-              <th>test header 3</th>
-          </tr>
-          <tr v-for="comic in comics" v-bind:key="comic.comic_id">
-              <td>{{comic.comicName}}</td>
-              <td>{{comic.author}}</td>
-              <td>{{comic.releaseDate}}</td>
-              
-          </tr>
-      </table>
+  <div id="all-comics">
+      <span v-for="comic in comics" v-bind:key="comic.comic_id" class="comic"> 
+        <span>{{comic.comicName}}</span>
+        <span>{{comic.author}}</span>
+        <span>{{comic.releaseDate}}</span>
+      </span>
   </div>
 </template>
 
 <script>
 import ComicService from "../services/ComicService"
 
+
 export default {
     name: 'all-comics',
+    
     data(){
         return {
             comics: []
@@ -38,6 +30,23 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+span.comic {
+    border: 3px solid black;
+    height: 150px;
+    width: 100px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    color: #fff;
+}
+
+#all-comics {
+    display: flex;
+    flex-wrap: wrap;
+}
 
 </style>

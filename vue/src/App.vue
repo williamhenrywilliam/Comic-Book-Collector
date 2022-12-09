@@ -44,6 +44,7 @@ export default {
     "header"
     "main"
     "footer"
+    ;
 }
 
 header {
@@ -59,9 +60,12 @@ main {
 
 footer {
   grid-area: footer;
+
 }
 
 #nav {
   text-align: center;
 }
+
+
 </style>

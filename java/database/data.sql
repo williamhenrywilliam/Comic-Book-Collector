@@ -107,6 +107,7 @@ INSERT INTO comic (comic_name,author,release_date) VALUES ('Thor (2020) #5', 'Kl
 INSERT INTO comic (comic_name,author,release_date) VALUES ('Thor (2020) #6', 'Klein Cates', '2020-07-13');
 
 
+
 COMMIT TRANSACTION;
 
 

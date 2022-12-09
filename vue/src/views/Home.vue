@@ -39,8 +39,8 @@ div.home {
   grid-template-areas:
     "title title"
     "statistics picture"
-    "featured-collection featured-collection";
-    margin-bottom: 5%;
+    "featured-collection featured-collection"
+    ;
 }
 
 div.title {

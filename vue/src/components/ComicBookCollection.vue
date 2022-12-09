@@ -18,7 +18,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped >
 div.comic-book-collection{
     display: flex;
     justify-content: space-evenly;
