@@ -9,7 +9,7 @@ public class Comic {
     private String author;
     private LocalDate releaseDate;
     private int collectionId;
-    //private String imageURL;
+    private String imageURL;
 
     public int getCollectionId() {
         return collectionId;
@@ -28,7 +28,7 @@ public class Comic {
         this.author = author;
         this.releaseDate = releaseDate;
         this.collectionId = collectionId;
-        //this.imageURL = imageURL;
+        this.imageURL = imageURL;
     }
 
     public void setComicId(int comicId) {
@@ -47,7 +47,7 @@ public class Comic {
         this.releaseDate = releaseDate;
     }
 
-    //public void setImageURL(String imageURL) {this.imageURL = imageURL;}
+    public void setImageURL(String imageURL) {this.imageURL = imageURL;}
 
 
 
@@ -70,7 +70,7 @@ public class Comic {
         return releaseDate;
     }
 
-    //public String getImageURL() {return imageURL;}
+    public String getImageURL() {return imageURL;}
 
 
 

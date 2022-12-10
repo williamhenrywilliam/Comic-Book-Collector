@@ -92,8 +92,6 @@ form.form-signin{
     margin-top: 1em;
 }
 
-
-
 h1{
     font-size: 35px;
 }
@@ -121,6 +119,7 @@ h1{
       letter-spacing: 0.05em;
       font-size: 16px;
 }
+
 #router-link{
    margin: 0 0 24px;
          width: 100%;
@@ -133,8 +132,6 @@ h1{
       font-size: 16px;
      
 }
-
-
 
 </style>
 
