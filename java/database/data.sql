@@ -1,10 +1,12 @@
-BEGIN TRANSACTION;
+"BEGIN TRANSACTION;"
+
+
+
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
 
-"** The collection_id is set to '1' because I have a collection table with the id of '1' named test **"
 
 
 INSERT INTO comic (comic_name,author,release_date,collection_id) VALUES ('Spider-Man (2022) #1', 'Dan Slott', '2022-10-05', '1');
@@ -108,11 +110,22 @@ INSERT INTO comic (comic_name,author,release_date,collection_id) VALUES ('Thor (
 INSERT INTO comic (comic_name,author,release_date,collection_id) VALUES ('Thor (2020) #5', 'Klein Cates', '2020-06-07', '1');
 INSERT INTO comic (comic_name,author,release_date,collection_id) VALUES ('Thor (2020) #6', 'Klein Cates', '2020-07-13', '1');
 
+
+
+
 INSERT INTO collection (collection_name) VALUES ('Test');
+INSERT INTO collection (collection_name) VALUES ('Spider-Man');
+INSERT INTO collection (collection_name) VALUES ('Deadpool');
+INSERT INTO collection (collection_name) VALUES ('Avengers');
+INSERT INTO collection (collection_name) VALUES ('X-Men');
+INSERT INTO collection (collection_name) VALUES ('Moon Knight');
+INSERT INTO collection (collection_name) VALUES ('Vision');
+INSERT INTO collection (collection_name) VALUES ('Daredevil');
+INSERT INTO collection (collection_name) VALUES ('Fantastic 4');
 
 
 
-COMMIT TRANSACTION;
+"COMMIT TRANSACTION;"
 
 
 
