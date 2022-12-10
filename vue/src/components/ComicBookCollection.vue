@@ -1,6 +1,5 @@
 <template>
   <section>
-    <h2>This is a Comic book collection </h2>
     <div class="comic-book-collection">   
         <comic-book-card v-for="comic in $store.state.comics" v-bind:comic="comic" v-bind:key="comic.title"/>
     </div>
@@ -22,5 +21,6 @@ export default {
 div.comic-book-collection{
     display: flex;
     justify-content: space-evenly;
+    border: 5px solid green;
 }
 </style>
