@@ -82,6 +82,7 @@ public class JbdcComicDao implements ComicDao {
        comic.setComicName(rowSet.getString("comic_name"));
        comic.setReleaseDate((rowSet.getDate("release_date").toLocalDate()));
        comic.setCollectionId(rowSet.getInt("collection_id"));
+       comic.setImageURL((rowSet.getString("comic_image")));
        return comic;
     }
 
