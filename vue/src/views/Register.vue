@@ -158,4 +158,9 @@ h1{
       font-size: 16px;
 }
 
+header, body, footer {
+  margin: 0;
+  padding: 0;
+}
+
 </style>
