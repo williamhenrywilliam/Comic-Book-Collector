@@ -40,15 +40,14 @@ author varchar (100) NOT NULL,
 release_date date NOT NULL,
 collection_id integer,
 comic_image varchar (1000)
-CONSTRAINT PK_comic PRIMARY KEY (comic_id)
-    INCLUDE(comic_id),
+CONSTRAINT PK_comic PRIMARY KEY (comic_id),
 CONSTRAINT comic_comic_name_key UNIQUE (comic_name),
-CONSTRAINT comic_name UNIQUE (comic_name)
-    INCLUDE(comic_name),
+CONSTRAINT comic_name UNIQUE (comic_name),
 CONSTRAINT collection_id FOREIGN KEY (collection_id)
     REFERENCES collection (collection_id) MATCH SIMPLE
     ON UPDATE NO ACTION
     ON DELETE NO ACTION
+    NOT VALID
 );
 
 COMMIT TRANSACTION;
