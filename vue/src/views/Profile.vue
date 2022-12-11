@@ -14,7 +14,7 @@
       </form>
       
       <div v-for="collection in collectionsStore" v-bind:key="collection.name">
-        {{collection.name}}
+        {{collection.collectionName}}
         <comic-book-collection />
       </div>
     </div>
@@ -42,6 +42,9 @@ export default {
         return this.$store.state.collections;
       }
     },
+    mounted(){
+      this.$store.dispatch("getAllCollections");
+    },
     methods: {
       createCollection() {
         if(this.newCollection !== ""){
@@ -49,15 +52,19 @@ export default {
           const newCollectionDB = {
             collectionName: this.newCollection
           };
-          //this variable will be sent to the store
+          
+          /*this variable will be sent to the store
           const newCollectionStore = {
             name: this.newCollection
           };
+          */
 
           //this sends to the database
           ComicService.createCollection(newCollectionDB);
-          //this sends to the store
+          
+          /*this sends to the store
           this.$store.commit("ADD_COLLECTION", newCollectionStore);
+          */
           
           //this resets the newCollection input to blank
           this.newCollection = "";

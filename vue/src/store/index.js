@@ -43,14 +43,7 @@ export default new Vuex.Store({
         author: "Stan Lee",
       }
     ],
-    collections: [
-      {
-        name: "Test Collection 3",
-      },
-      {
-        name: "Test Collection 4",
-      }
-    ]
+    collections: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -72,6 +65,18 @@ export default new Vuex.Store({
     //ADDING MUTATIONS VVV
     ADD_COLLECTION(state, collection){
       state.collections.push(collection);
+    },
+    SET_COLLECTIONS(state, collections) {
+      state.collections = collections;
     }
+    
+  },
+  actions:{
+    getAllCollections (context) {
+      axios.get('http://localhost:9000/collection').then(response => {
+      context.commit('SET_COLLECTIONS', response.data)
+      })
+    }
+    
   }
 })
