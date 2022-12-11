@@ -4,7 +4,7 @@ INSERT INTO public.users(
 
 
 INSERT INTO public.comic(
-	comic_id, comic_name, author, release_date, collection_id)
+	comic_id, comic_name, author, release_date, collection_id, comic_image)
 	VALUES (?, ?, ?, ?, ?);
 
 
