@@ -32,11 +32,7 @@ export default {
       let imageUrl = "";
       if (index % 3 === 0) {
         imageUrl = "https://i.annihil.us/u/prod/marvel/i/mg/d/f0/62d0452848928/portrait_xlarge.jpg";
-      } else if (index % 3 === 1) {
-        imageUrl = "http://i.annihil.us/u/prod/marvel/i/mg/9/c0/527bb7b37ff55/portrait_xlarge.jpg";
-      } else {
-        imageUrl = "http://i.annihil.us/u/prod/marvel/i/mg/3/50/537ba56d31087/portrait_xlarge.jpg";
-      }
+      } //TODO
       return {...comic, flipped: false, image: imageUrl};
       });
     })
@@ -47,7 +43,7 @@ export default {
         return comic.comicName.toLowerCase().includes(this.searchText.toLowerCase()) || comic.author.toLowerCase().includes(this.searchText.toLowerCase());
       })
     }
-  }
+  },
 }
 </script>
 <style scoped>
@@ -87,4 +83,18 @@ span.comic-details {
     color: #fff;
 }
 
+span.comic {
+  /* existing styles */
+  transition: all 0.3s ease;
+}
+
+span.comic:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+span.comic {
+  /* existing styles */
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
 </style>
