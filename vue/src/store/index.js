@@ -42,7 +42,8 @@ export default new Vuex.Store({
         title: "Iron Man #1",
         author: "Stan Lee",
       }
-    ]
+    ],
+    collections: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -60,6 +61,22 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    //ADDING MUTATIONS VVV
+    ADD_COLLECTION(state, collection){
+      state.collections.push(collection);
+    },
+    SET_COLLECTIONS(state, collections) {
+      state.collections = collections;
     }
+    
+  },
+  actions:{
+    getAllCollections (context) {
+      axios.get('http://localhost:9000/collection').then(response => {
+      context.commit('SET_COLLECTIONS', response.data)
+      })
+    }
+    
   }
 })

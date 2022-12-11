@@ -21,7 +21,21 @@ export default {
 
   getAllComics(){
     return http.get('/comic');
+  },
+
+  createCollection(collection){
+    return http.post('/collection', collection);
+  },
+
+  getAllCollections(){
+    return http.get('/collection')
   }
+
+  /*
+  addComicToACollection(comic){
+    return http.post('/comic', comic);
+  }
+  */
 
   
 }

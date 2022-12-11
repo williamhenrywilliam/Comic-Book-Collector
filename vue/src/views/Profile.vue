@@ -13,8 +13,8 @@
         <input type="text" placeholder="new collection name..." v-model="newCollection"/>
       </form>
       
-      <div v-for="collection in collections" v-bind:key="collection.name">
-        {{collection.name}}
+      <div v-for="collection in collectionsStore" v-bind:key="collection.name">
+        {{collection.collectionName}}
         <comic-book-collection />
       </div>
     </div>
@@ -24,7 +24,7 @@
 
 <script>
 import ComicBookCollection from '../components/ComicBookCollection.vue'
-
+import ComicService from '../services/ComicService'
 
 export default {
   components: { 
@@ -34,24 +34,40 @@ export default {
     data() {
         return {
             user: this.$store.state.user,
-            newCollection: "",
-            collections: [
-              {
-                name: "Test Collection",
-              },
-              {
-                name: "Test Collection 2",
-              }
-            ]
+            newCollection: "", 
         }
+    },
+    computed: {
+      collectionsStore() {
+        return this.$store.state.collections;
+      }
+    },
+    mounted(){
+      this.$store.dispatch("getAllCollections");
     },
     methods: {
       createCollection() {
         if(this.newCollection !== ""){
-        this.collections.push({
-          name: this.newCollection
-        });
-        this.newCollection = "";
+          //this variable will be sent to the database
+          const newCollectionDB = {
+            collectionName: this.newCollection
+          };
+          
+          /*this variable will be sent to the store
+          const newCollectionStore = {
+            name: this.newCollection
+          };
+          */
+
+          //this sends to the database
+          ComicService.createCollection(newCollectionDB);
+          
+          /*this sends to the store
+          this.$store.commit("ADD_COLLECTION", newCollectionStore);
+          */
+          
+          //this resets the newCollection input to blank
+          this.newCollection = "";
         } else {
           alert("A New Collection must have a name!")
         }
