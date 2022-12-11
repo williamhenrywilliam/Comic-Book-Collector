@@ -24,7 +24,7 @@
 
 <script>
 import ComicBookCollection from '../components/ComicBookCollection.vue'
-
+import ComicService from '../services/ComicService'
 
 export default {
   components: { 
@@ -48,9 +48,13 @@ export default {
     methods: {
       createCollection() {
         if(this.newCollection !== ""){
+          const newCollectionDB = {
+            collection_name: this.newCollection
+          } 
         this.collections.push({
           name: this.newCollection
         });
+        ComicService.createCollection(newCollectionDB)
         this.newCollection = "";
         } else {
           alert("A New Collection must have a name!")
