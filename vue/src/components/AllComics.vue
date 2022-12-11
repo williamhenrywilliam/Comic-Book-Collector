@@ -1,21 +1,26 @@
 <template>
   <div id="all-comics">
 
-    <div id="search-bar"><input type="text" placeholder="Search Comics..." v-model="searchText" /> </div>
+    <div id="search-bar">
+      <input type="text" placeholder="Search Comics..." v-model="searchText" />
+    </div>
+    
     <div id="comics-container">
-     <span v-for="comic in searchedComics" v-bind:key="comic.comic_id" class="comic" @click="comic.flipped = !comic.flipped">
-  <span v-if="comic.flipped">
-    <span>{{comic.comicName}}</span>
-    <span>{{comic.author}}</span>
-    <span>{{comic.releaseDate}}</span>
-  </span>
-    <div v-else>
-    <img :src="comic.imageURL" alt="Spider-Man comic">
-  </div>
-</span>
-  </div>
+      <span v-for="comic in searchedComics" v-bind:key="comic.comic_id" class="comic" @click="comic.flipped = !comic.flipped">
+        <span v-if="comic.flipped">
+          <span>{{comic.comicName}}</span>
+          <span>{{comic.author}}</span>
+          <span>{{comic.releaseDate}}</span>
+        </span>
+        <div v-else>
+          <img :src="comic.imageURL" alt="Spider-Man comic">
+        </div>
+      </span>
+    </div>
+  
   </div>
 </template>
+
 <script>
 import ComicService from "../services/ComicService"
 export default {

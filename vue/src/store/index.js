@@ -42,6 +42,14 @@ export default new Vuex.Store({
         title: "Iron Man #1",
         author: "Stan Lee",
       }
+    ],
+    collections: [
+      {
+        name: "Test Collection 3",
+      },
+      {
+        name: "Test Collection 4",
+      }
     ]
   },
   mutations: {
@@ -60,6 +68,10 @@ export default new Vuex.Store({
       state.token = '';
       state.user = {};
       axios.defaults.headers.common = {};
+    },
+    //ADDING MUTATIONS VVV
+    ADD_COLLECTION(state, collection){
+      state.collections.push(collection);
     }
   }
 })

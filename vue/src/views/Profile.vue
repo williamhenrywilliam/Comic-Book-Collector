@@ -13,7 +13,7 @@
         <input type="text" placeholder="new collection name..." v-model="newCollection"/>
       </form>
       
-      <div v-for="collection in collections" v-bind:key="collection.name">
+      <div v-for="collection in collectionsStore" v-bind:key="collection.name">
         {{collection.name}}
         <comic-book-collection />
       </div>
@@ -34,28 +34,33 @@ export default {
     data() {
         return {
             user: this.$store.state.user,
-            newCollection: "",
-            collections: [
-              {
-                name: "Test Collection",
-              },
-              {
-                name: "Test Collection 2",
-              }
-            ]
+            newCollection: "", 
         }
+    },
+    computed: {
+      collectionsStore() {
+        return this.$store.state.collections;
+      }
     },
     methods: {
       createCollection() {
         if(this.newCollection !== ""){
+          //this variable will be sent to the database
           const newCollectionDB = {
-            collection_name: this.newCollection
-          } 
-        this.collections.push({
-          name: this.newCollection
-        });
-        ComicService.createCollection(newCollectionDB)
-        this.newCollection = "";
+            collectionName: this.newCollection
+          };
+          //this variable will be sent to the store
+          const newCollectionStore = {
+            name: this.newCollection
+          };
+
+          //this sends to the database
+          ComicService.createCollection(newCollectionDB);
+          //this sends to the store
+          this.$store.commit("ADD_COLLECTION", newCollectionStore);
+          
+          //this resets the newCollection input to blank
+          this.newCollection = "";
         } else {
           alert("A New Collection must have a name!")
         }
