@@ -88,8 +88,8 @@ public class JbdcComicDao implements ComicDao {
 
     @Override
     public Comic createComic(Comic comic) {
-        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id) VALUES (?, ?, ?, ?) returning comic_id";
-        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId());
+        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id, comic_image) VALUES (?, ?, ?, ?, ?) returning comic_id";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId(), comic.getImageURL());
         return getComicById(newId);
     }
 }
