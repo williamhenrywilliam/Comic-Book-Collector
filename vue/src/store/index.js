@@ -23,8 +23,10 @@ export default new Vuex.Store({
     //adding in code here vvv. THIS IS TEMPORARY. WILL NEED TO DYNAMICALLY PULL FROM DATABASE
     comics: [
       {
+        comicName: "Spiderman test",
         title: "Spiderman #1",
         author: "Stan Lee",
+        releaseDate: "2000-1-1"
       },
       {
         title: "Deadpool #1",
@@ -43,7 +45,8 @@ export default new Vuex.Store({
         author: "Stan Lee",
       }
     ],
-    collections: []
+    collections: [],
+    comicsDB: []
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -66,8 +69,11 @@ export default new Vuex.Store({
     ADD_COLLECTION(state, collection){
       state.collections.push(collection);
     },
-    SET_COLLECTIONS(state, collections) {
-      state.collections = collections;
+    SET_COLLECTIONS(state, collectionsPayload) {
+      state.collections = collectionsPayload;
+    },
+    SET_COMICS(state, comicsPayload){
+      state.comicsDB = comicsPayload;
     }
     
   },
@@ -75,6 +81,11 @@ export default new Vuex.Store({
     getAllCollections (context) {
       axios.get('http://localhost:9000/collection').then(response => {
       context.commit('SET_COLLECTIONS', response.data)
+      })
+    },
+    getAllComics (context){
+      axios.get('http://localhost:9000/comic').then(response => {
+        context.commit('SET_COMICS', response.data)
       })
     }
     

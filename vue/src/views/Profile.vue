@@ -47,27 +47,29 @@ export default {
     },
     methods: {
       createCollection() {
+        /*
+        NEED TO MAKE SURE THAT DATABASE HAS UNIQUE NAMES ONLY
+        sort through the collections array on the veux store, check each one's collectionName and see if it ties to newCollection. if so, we CANNOT execute the code and should dispaly a message that says "collection name already exists!"
+
+        this.$store.state.find((collection) => {
+          return collection.collectionName === newCollection;
+
+        }
+        
+        */
+
         if(this.newCollection !== ""){
           //this variable will be sent to the database
           const newCollectionDB = {
             collectionName: this.newCollection
           };
-          
-          /*this variable will be sent to the store
-          const newCollectionStore = {
-            name: this.newCollection
-          };
-          */
 
           //this sends to the database
           ComicService.createCollection(newCollectionDB);
-          
-          /*this sends to the store
-          this.$store.commit("ADD_COLLECTION", newCollectionStore);
-          */
-          
+ 
           //this resets the newCollection input to blank
           this.newCollection = "";
+          location.reload();
         } else {
           alert("A New Collection must have a name!")
         }
