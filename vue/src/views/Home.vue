@@ -29,6 +29,12 @@ export default {
     ComicBookCollection
   },
   name: "home",
+  //TO Be DELETED vv
+  computed: {
+    featuredCollection(){
+      return this.$store.state.comics; 
+    }
+  }
 }
 </script>
 

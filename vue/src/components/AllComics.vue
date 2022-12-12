@@ -56,13 +56,13 @@ span.comic {
   border: 3px solid black;
   height: 150px;
   width: 100px;
-    margin: 10px 10px 10px 10px;
+  margin: 10px 10px 10px 10px;
   padding: 10px 10px 10px 10px;
-    display:flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: space-between;
-    color: #fff;
+  display:flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: space-between;
+  color: #fff;
 }
 
 img {

@@ -1,8 +1,10 @@
 <template>
-  <div class="comic-book-card">
-      <h2 class="comic-book-title">{{comic.title}}</h2>
-      <p>picture of comic</p>
-      <h3>{{comic.author}}</h3>
+  <div>
+      <span id="comic-book-container">
+        <span>{{comic.comicName}}</span>
+        <span>{{comic.author}}</span>
+        <span>{{comic.releaseDate}}</span>
+      </span>
   </div>
 </template>
 
@@ -17,8 +19,17 @@ export default {
 </script>
 
 <style scoped>
-div.comic-book-card {
-    border: 5px solid blue;
+#comic-book-container {
+    border: 3px solid black;
+    height: 150px;
+    width: 100px;
+    margin: 10px 10px 10px 10px;
+    padding: 10px 10px 10px 10px;
+    display:flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: space-between;
+    color: #fff;
 }
 
 </style>
