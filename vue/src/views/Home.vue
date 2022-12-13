@@ -2,7 +2,7 @@
   <div class="home">
     
     <div class="title">
-      <h1>Welcome!!</h1>
+      <h1>Welcome to the best comic website!!</h1>
       <p>You must be authenticated to see this</p>
     </div>
 
@@ -52,26 +52,33 @@ div.home {
 div.title {
   grid-area: title;
   text-align: center;
-  border: 5px solid black;
+  border-bottom: 1px solid white;
   margin: 10px 10px 10px 10px;
+  color: black;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-size: 20px;
+
 }
 
 div.statistics {
   grid-area: statistics;
-  border: 5px solid black;
+  border: 2px solid white;
   margin: 10px 10px 10px 10px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
 
 div.picture {
   grid-area: picture;
-  border: 5px solid black;
   margin: 10px 10px 10px 10px;
 }
 
 div.featured-collection {
   grid-area: featured-collection;
-  border: 5px solid black;
+  border-bottom: 1px solid white;
   margin: 10px 10px 10px 10px;
+  font-family: "Comic Sans MS", "Comic Sans", cursive;
+
 }
 
 /* this will style the image itself. currently it is centering the image. might not be necessary*/
