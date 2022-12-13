@@ -13,9 +13,9 @@
         <input type="text" placeholder="new collection name..." v-model="newCollection"/>
       </form>
       
-      <div v-for="collection in collectionsStore" v-bind:key="collection.name">
+      <div v-for="collection in userCollections" v-bind:key="collection.name">
         {{collection.collectionName}}
-        <comic-book-collection />
+        <comic-book-collection-user />
       </div>
     </div>
 
@@ -23,12 +23,14 @@
 </template>
 
 <script>
-import ComicBookCollection from '../components/ComicBookCollection.vue'
+
+import ComicBookCollectionUser from '../components/ComicBookCollectionUser.vue'
 import ComicService from '../services/ComicService'
 
 export default {
   components: { 
-    ComicBookCollection
+    
+    ComicBookCollectionUser
   },
     name: 'profile',
     data() {
@@ -40,6 +42,12 @@ export default {
     computed: {
       collectionsStore() {
         return this.$store.state.collections;
+      },
+      userCollections(){
+        return this.$store.state.collections.filter((collection) => {
+          //THE 9 here is because we have 9 starter collections. so a user collection is guaranteed to be greater than 9. if we add more starter collections we need to update this number
+          return collection.collectionId > 9;
+        })
       }
     },
     mounted(){
