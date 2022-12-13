@@ -29,13 +29,12 @@ export default {
 
   getAllCollections(){
     return http.get('/collection')
-  }
+  },
 
-  /*
   addComicToACollection(comic){
     return http.post('/comic', comic);
   }
-  */
+  
 
   
 }
