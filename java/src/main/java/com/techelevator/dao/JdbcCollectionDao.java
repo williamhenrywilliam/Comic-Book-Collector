@@ -53,10 +53,26 @@ public class JdbcCollectionDao implements CollectionDao {
         return getCollectionById(newId);
     }
 
+    /*@Override
+    public List<Collection> getCollectionByUserId(int userId) {
+        List<Collection> collections = new ArrayList<>();
+        String sql = "SELECT * FROM collection WHERE user_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
+        while (results.next()){
+            Collection collection = mapRowToCollection(results);
+            collections.add(collection);
+        }
+        return collections;
+    }*/
+
+
     private Collection mapRowToCollection(SqlRowSet rs) {
         Collection collection = new Collection();
         collection.setCollectionId(rs.getInt("collection_id"));
         collection.setCollectionName(rs.getString("collection_name"));
+        /*collection.setUserId(rs.getInt("user_id"));*/
         return collection;
     }
+
 }

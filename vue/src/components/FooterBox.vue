@@ -1,6 +1,6 @@
 <template>
   <div id="footer" class="class">
-        <h2>&copy;Group Name</h2>
+        <h2>&copy;The Z-Coders</h2>
   </div>
 </template>
 
