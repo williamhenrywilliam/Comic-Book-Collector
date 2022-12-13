@@ -1,0 +1,6 @@
+SELECT count.comic_id, count.collection_id, count.author
+FROM comic
+INNER JOIN collection_id ON comic_id and author;
+WHERE collection_id = NOT NULL;
+ORDER BY comic.collection_id DESC;
+
