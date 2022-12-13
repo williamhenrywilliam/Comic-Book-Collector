@@ -18,11 +18,11 @@
             <img :src="comic.imageURL" alt="Spider-Man comic">
           </div>
 
-          <form v-on:submit.prevent="addComicToACollection(comic)">
+          <form v-on:submit.prevent="addComicToACollection(comic, selectedCollectionId)">
             <button>Add To Collection</button>
+            
             <label for="user-collections">Select Collection to Add to</label>
-           
-            <select name="user-collections" id="user-collections">
+            <select name="user-collections" class="user-collections-dropdowns" @change="switchCollectionId($event)">
               <option value="" disabled selected>---</option>
               <option v-for="collection in userCollections" v-bind:key="collection.collectionName" :value="collection.collectionId" >{{collection.collectionName}}</option>
             </select>
@@ -43,7 +43,7 @@ export default {
       comics: [],
       collections: this.$store.state.collections,
       searchText: "",
-      fakeID: 99
+      selectedCollectionId: ""
     }
   },
   created(){
@@ -71,32 +71,26 @@ export default {
       this.$store.dispatch("getAllCollections");
   },
   methods: {
-   addComicToACollection(comic) {
-  // Step 1: Retrieve the selected collection ID from the dropdown menu
-  const selectedCollectionId = document.getElementById('user-collections').value;
-
-  // Step 2: Use the ComicService to add the new comic book to the "comic" table in the database
-  const newComic = {
-    comicName: comic.comicName,
-    author: comic.author,
-    releaseDate: comic.releaseDate,
-    collectionId: selectedCollectionId,
-    imageURL: comic.imageURL
-  };
-  ComicService.addComicToACollection(newComic)
-    .then(() => {
-      // Step 3: Update the local copy of the "comic" table
-      this.comics = [...this.comics, newComic];
-
-      // Step 4 (optional): Update the user interface to reflect the changes
-      // For example, you could refresh the list of comics to show the newly added comic book
-      this.$forceUpdate();
-    });
-}
-
-
-
-
+    addComicToACollection(comic, id){
+      
+      /*
+      const newComic = {
+        comicName: "Test Name2",
+        author: "Test Author2",
+        releaseDate: "2000-01-02",
+        collectionId: 5,
+        imageURL: "Test URL String2"
+     }
+     ComicService.addComicToACollection(newComic);
+      */
+      const newComic = comic;
+      newComic.collectionId = id;
+      ComicService.addComicToACollection(newComic);
+      location.reload();
+    },
+    switchCollectionId(event){
+      this.selectedCollectionId = event.target.value;
+    }
   }
 }
 </script>
@@ -154,4 +148,5 @@ span > form {
   
 }
 </style>
+
 
