@@ -4,7 +4,7 @@ public class Collection {
 
     private int collectionId;
     private String collectionName;
-    private int userId;
+    //private int userId;
 
     public Collection(){
 
@@ -13,7 +13,7 @@ public class Collection {
     public Collection(int collectionId, String collectionName, int userId) {
         this.collectionId = collectionId;
         this.collectionName = collectionName;
-        this.userId = userId;
+        //this.userId = userId;
     }
 
     public int getCollectionId() {
@@ -24,9 +24,9 @@ public class Collection {
         return collectionName;
     }
 
-    public int getUserId() {
+    /*public int getUserId() {
         return userId;
-    }
+    }*/
 
 
 
@@ -39,9 +39,9 @@ public class Collection {
         this.collectionName = collectionName;
     }
 
-    public void setUserId(int userId) {
+    /*public void setUserId(int userId) {
         this.userId = userId;
-    }
+    }*/
 
 
 
@@ -50,7 +50,7 @@ public class Collection {
         return "Collection{" +
                 "id=" + collectionId +
                 ", collectionName='" + collectionName + '\'' +
-                ", userId=" + userId +
+                ", userId=" + //userId +
                 '}';
     }
 
