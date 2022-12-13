@@ -28,7 +28,7 @@ export default {
     computed: {
     featuredCollection(){
       return this.$store.state.comicsDB.filter((comic) => {
-        return comic.collectionId === 3;
+        return comic.collectionId === 5;
       }) 
     },
   }

@@ -18,7 +18,7 @@
             <img :src="comic.imageURL" alt="Spider-Man comic">
           </div>
 
-          <form v-on:submit.prevent="addComicToACollection(comic, user-collections-choice)">
+          <form v-on:submit.prevent="addComicToACollection(comic)">
             <button>Add To Collection</button>
             <label for="user-collections">Select Collection to Add to</label>
            
@@ -71,22 +71,32 @@ export default {
       this.$store.dispatch("getAllCollections");
   },
   methods: {
-    addComicToACollection(comic, id){
-      
-      /*
-      const newComic = {
-        comicName: "Test Name2",
-        author: "Test Author2",
-        releaseDate: "2000-01-02",
-        collectionId: 5,
-        imageURL: "Test URL String2"
-     }
-     ComicService.addComicToACollection(newComic);
-      */
-      const newComic = comic;
-      newComic.collectionId = id;
-      ComicService.addComicToACollection(newComic);
-    }
+   addComicToACollection(comic) {
+  // Step 1: Retrieve the selected collection ID from the dropdown menu
+  const selectedCollectionId = document.getElementById('user-collections').value;
+
+  // Step 2: Use the ComicService to add the new comic book to the "comic" table in the database
+  const newComic = {
+    comicName: comic.comicName,
+    author: comic.author,
+    releaseDate: comic.releaseDate,
+    collectionId: selectedCollectionId,
+    imageURL: comic.imageURL
+  };
+  ComicService.addComicToACollection(newComic)
+    .then(() => {
+      // Step 3: Update the local copy of the "comic" table
+      this.comics = [...this.comics, newComic];
+
+      // Step 4 (optional): Update the user interface to reflect the changes
+      // For example, you could refresh the list of comics to show the newly added comic book
+      this.$forceUpdate();
+    });
+}
+
+
+
+
   }
 }
 </script>
