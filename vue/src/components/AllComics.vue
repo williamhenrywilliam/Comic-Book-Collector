@@ -18,12 +18,15 @@
             <img :src="comic.imageURL" alt="Spider-Man comic">
           </div>
 
-          <form v-on:submit.prevent="addComicToACollection(comic)">
+          <form v-on:submit.prevent="addComicToACollection(comic, user-collections-choice)">
             <button>Add To Collection</button>
             <label for="user-collections">Select Collection to Add to</label>
+           
             <select name="user-collections" id="user-collections">
-              <option v-for="collection in userCollections" v-bind:key="collection.collectionName" value="COMEBACKTOTHIS">{{collection.collectionName}}</option>
+              <option value="" disabled selected>---</option>
+              <option v-for="collection in userCollections" v-bind:key="collection.collectionName" :value="collection.collectionId" >{{collection.collectionName}}</option>
             </select>
+            
           </form>
 
         </span>
@@ -39,7 +42,8 @@ export default {
     return {
       comics: [],
       collections: this.$store.state.collections,
-      searchText: ""
+      searchText: "",
+      fakeID: 99
     }
   },
   created(){
@@ -67,8 +71,21 @@ export default {
       this.$store.dispatch("getAllCollections");
   },
   methods: {
-    addComicToACollection(comic){
-      ComicService.addComicToACollection(comic);
+    addComicToACollection(comic, id){
+      
+      /*
+      const newComic = {
+        comicName: "Test Name2",
+        author: "Test Author2",
+        releaseDate: "2000-01-02",
+        collectionId: 5,
+        imageURL: "Test URL String2"
+     }
+     ComicService.addComicToACollection(newComic);
+      */
+      const newComic = comic;
+      newComic.collectionId = id;
+      ComicService.addComicToACollection(newComic);
     }
   }
 }
@@ -110,10 +127,12 @@ span.comic {
   margin-bottom: 50px;
 }
 
-/*span.comic:hover {
+/* Commenting this out until we figure out the structure of the add comic button
+span.comic:hover {
   transform: scale(1.1);
   box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}*/
+}
+*/
 
 #comic-details {
   display: flex;
@@ -122,5 +141,7 @@ span.comic {
 
 span > form {
   margin-top: 20px;
+  
 }
 </style>
+
