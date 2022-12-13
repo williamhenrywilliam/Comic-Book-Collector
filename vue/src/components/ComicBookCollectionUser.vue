@@ -3,11 +3,11 @@
     <div class="comic-book-collection-user">
       <h2>This is a User Collection</h2>
 
-      <!--<div v-for="collection in userCollectionsOnly" v-bind:key="collection.name"> {{collection.collectionName}} -->
+      <div v-for="collection in userCollectionsOnly" v-bind:key="collection.name"> {{collection.collectionName}}
         <div class="comic-book-container-user">
           <comic-book-card v-for="comic in featuredCollection" v-bind:comic="comic" v-bind:key="comic.author"/>
         </div>
-      <!--</div>-->
+      </div>
       
     </div>
   </div>
