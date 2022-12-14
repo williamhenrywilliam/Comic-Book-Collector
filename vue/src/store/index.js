@@ -46,7 +46,8 @@ export default new Vuex.Store({
       }
     ],
     collections: [],
-    comicsDB: []
+    comicsDB: [],
+    comicCount: ""
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {
@@ -74,6 +75,9 @@ export default new Vuex.Store({
     },
     SET_COMICS(state, comicsPayload){
       state.comicsDB = comicsPayload;
+    },
+    SET_COMIC_COUNT(state, comicCountPayload){
+      state.comicCount = comicCountPayload;
     }
     
   },
@@ -86,6 +90,11 @@ export default new Vuex.Store({
     getAllComics (context){
       axios.get('http://localhost:9000/comic').then(response => {
         context.commit('SET_COMICS', response.data)
+      })
+    },
+    getComicCount(context){
+      axios.get('http://localhost:9000/comic/count').then(response => {
+        context.commit('SET_COMIC_COUNT', response.data)
       })
     }
     

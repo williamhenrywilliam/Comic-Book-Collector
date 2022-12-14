@@ -7,7 +7,7 @@
     </div>
 
     <div class="statistics">
-      <p>statistics will go here</p>
+      <p>Our Website has {{comicCount}} Comics!</p>
     </div>
     
     <div class="picture">
@@ -23,16 +23,32 @@
 
 <script>
 import ComicBookCollection from '../components/ComicBookCollection.vue'
+import ComicService from "../services/ComicService"
 
 export default {
   components: { 
     ComicBookCollection
   },
+  data(){
+    return{
+      comicCount: ""
+    }
+  },
   name: "home",
+  created(){
+    ComicService.getComicCount().then((response) => {
+      this.comicCount = response.data
+    })
+  },
   //TO Be DELETED vv
   computed: {
     featuredCollection(){
       return this.$store.state.comics; 
+    },
+    onlyFeaturedComics(){
+      return this.comicCount.filter((comic) => {
+        return comic.collectionId === 1;
+      });
     }
   }
 }
