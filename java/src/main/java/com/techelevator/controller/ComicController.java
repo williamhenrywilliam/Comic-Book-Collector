@@ -38,6 +38,11 @@ public class ComicController {
     @RequestMapping(path = "/comicName/{comicName}", method = RequestMethod.GET)
     public Comic getComicByName(@PathVariable String comicName){return  comicDao.getByComicName(comicName);}
 
+    @RequestMapping(path = "/collection/{id}", method = RequestMethod.GET)
+    public List<Comic> findAllComicsByCollectionId(@PathVariable int id) {
+        return comicDao.findAllComicsByCollectionId(id);
+    }
+
 }
 
 //@RequestMapping(path = "/comicname", method = RequestMethod.GET)

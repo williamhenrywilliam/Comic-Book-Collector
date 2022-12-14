@@ -19,6 +19,10 @@ public interface ComicDao {
 
     Comic createComic(Comic comic);
 
+    List<Comic> findAllComicsByCollectionId(int collectionId);
+
+
+
 
 
 

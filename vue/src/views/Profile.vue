@@ -101,4 +101,3 @@ export default {
   border: 5px solid black;
 }
 </style>
-

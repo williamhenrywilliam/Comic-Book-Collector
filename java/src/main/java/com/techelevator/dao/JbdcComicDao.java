@@ -32,6 +32,23 @@ public class JbdcComicDao implements ComicDao {
     }
 
     @Override
+    public List<Comic> findAllComicsByCollectionId(int collectionId) {
+        List<Comic> comics = new ArrayList<>();
+
+        String sql = "SELECT * " +
+                "FROM comic " +
+                "JOIN collection ON comic.collection_id = collection.collection_id " +
+                "WHERE collection.collection_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
+        while (results.next()) {
+            Comic comic = mapRowToComic(results);
+            comics.add(comic);
+        }
+        return comics;
+    }
+
+
+    @Override
     public Comic getComicById(int comicId){
         String sql = "SELECT * FROM comic WHERE comic_id = ?";
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql,comicId);
@@ -75,6 +92,8 @@ public class JbdcComicDao implements ComicDao {
         }
     }
 
+
+
     private Comic mapRowToComic(SqlRowSet rowSet) {
         Comic comic = new Comic();
         comic.setComicId(rowSet.getInt("comic_id"));
@@ -92,4 +111,6 @@ public class JbdcComicDao implements ComicDao {
         int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId(), comic.getImageURL());
         return getComicById(newId);
     }
+
+
 }

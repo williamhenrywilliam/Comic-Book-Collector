@@ -53,6 +53,7 @@ public class JdbcCollectionDao implements CollectionDao {
         return getCollectionById(newId);
     }
 
+
     @Override
     public Collection linkUserId(Collection collection) {
         return null;
