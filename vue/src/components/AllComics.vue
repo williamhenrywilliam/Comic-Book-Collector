@@ -15,7 +15,7 @@
           </span>
 
           <div v-else>
-            <img :src="comic.imageURL" alt="Spider-Man comic">
+            <img :src="comic.imageURL" alt="Comic Book Cover Art">
           </div>
 
           <form v-on:submit.prevent="addComicToACollection(comic, selectedCollectionId)" @click.stop>
@@ -60,7 +60,7 @@ export default {
   computed:{
     searchedComics(){
       return this.comics.filter((comic)=> {
-        return comic.comicName.toLowerCase().includes(this.searchText.toLowerCase()) || comic.author.toLowerCase().includes(this.searchText.toLowerCase());
+        return (comic.comicName.toLowerCase().includes(this.searchText.toLowerCase()) || comic.author.toLowerCase().includes(this.searchText.toLowerCase())) && comic.comicId <= 100;
       })
     },
     userCollections(){

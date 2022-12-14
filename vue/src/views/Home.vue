@@ -55,7 +55,7 @@ div.title {
   border-bottom: 1px solid white;
   margin: 10px 10px 10px 10px;
   color: black;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: monospace, serif;
   font-size: 20px;
 
 }
@@ -64,7 +64,7 @@ div.statistics {
   grid-area: statistics;
   border: 2px solid white;
   margin: 10px 10px 10px 10px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: monospace, serif;
 
 }
 
@@ -77,7 +77,7 @@ div.featured-collection {
   grid-area: featured-collection;
   border-bottom: 1px solid white;
   margin: 10px 10px 10px 10px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
+  font-family: monospace, serif;
 
 }
 

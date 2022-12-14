@@ -38,17 +38,6 @@ export default {
             newCollection: "", 
         }
     },
-    computed: {
-      collectionsStore() {
-        return this.$store.state.collections;
-      },
-      userCollections(){
-        return this.$store.state.collections.filter((collection) => {
-          //THE 9 here is because we have 9 starter collections. so a user collection is guaranteed to be greater than 9. if we add more starter collections we need to update this number
-          return collection.collectionId > 9;
-        })
-      }
-    },
     mounted(){
       this.$store.dispatch("getAllCollections");
     },
