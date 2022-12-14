@@ -18,7 +18,7 @@
             <img :src="comic.imageURL" alt="Spider-Man comic">
           </div>
 
-          <form v-on:submit.prevent="addComicToACollection(comic, selectedCollectionId)">
+          <form v-on:submit.prevent="addComicToACollection(comic, selectedCollectionId)" @click.stop>
             <button>Add To Collection</button>
 
             <label for="user-collections">Select Collection to Add to</label>
