@@ -37,7 +37,7 @@ export default {
   computed: {
     userCollections(){
       return this.$store.state.collections.filter((collection) => {
-        return collection.collectionId > 9;
+        return collection.collectionId > 8;
       });
     },
     comicsInSelectedCollection(){

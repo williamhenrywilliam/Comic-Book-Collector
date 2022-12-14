@@ -2,7 +2,7 @@
   <div id="comic-book-collection">
     <h2>This is a Comic book collection </h2>
     
-    <div class="comic-book-container">        
+    <div class="comic-book-container scroll">        
         <comic-book-card v-for="comic in featuredCollection" v-bind:comic="comic" v-bind:key="comic.author"/>
     </div>
 
@@ -28,7 +28,7 @@ export default {
     computed: {
     featuredCollection(){
       return this.$store.state.comicsDB.filter((comic) => {
-        return comic.collectionId === 3;
+        return comic.collectionId === 1;
       }) 
     },
   }
@@ -42,7 +42,11 @@ export default {
 
 div.comic-book-container{
     display: flex;
-    justify-content: space-evenly;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin: 4px, 4px;
+    padding: 4px;
+  
 }
 
 </style>
