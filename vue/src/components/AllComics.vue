@@ -20,13 +20,13 @@
 
           <form v-on:submit.prevent="addComicToACollection(comic, selectedCollectionId)">
             <button>Add To Collection</button>
-            
+
             <label for="user-collections">Select Collection to Add to</label>
             <select name="user-collections" class="user-collections-dropdowns" @change="switchCollectionId($event)">
               <option value="" disabled selected>---</option>
               <option v-for="collection in userCollections" v-bind:key="collection.collectionName" :value="collection.collectionId" >{{collection.collectionName}}</option>
             </select>
-            
+
           </form>
 
         </span>
@@ -72,7 +72,7 @@ export default {
   },
   methods: {
     addComicToACollection(comic, id){
-      
+
       /*
       const newComic = {
         comicName: "Test Name2",

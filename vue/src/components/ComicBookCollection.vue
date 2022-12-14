@@ -45,7 +45,4 @@ div.comic-book-container{
     justify-content: space-evenly;
 }
 
-#comic-book-span {
-  border: 5px solid chartreuse;
-}
 </style>
