@@ -37,7 +37,9 @@ export default {
   
   getComicCount() {
     return http.get('/comic/count');
-  }
+  },
+
+  
 
   
 }
