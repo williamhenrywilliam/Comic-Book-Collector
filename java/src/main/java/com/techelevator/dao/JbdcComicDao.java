@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 
+import com.techelevator.model.AuthorComicCount;
 import com.techelevator.model.Comic;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -112,21 +113,26 @@ public class JbdcComicDao implements ComicDao {
         return count;
     }
 
-//    @Override
-//    public List<Map<String, Object>> getAuthorComicCount() {
-//        List<Map<String, Object>> results = new ArrayList<>();
-//        String sql = "SELECT author, COUNT(*) FROM comic GROUP BY author";
-//        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
-//        while (rowSet.next()) {
-//            Map<String, Object> row = new HashMap<>();
-//            row.put("author", rowSet.getString("author"));
-//            row.put("COUNT(*)", rowSet.getInt("COUNT(*)"));
-//            results.add(row);
-//        }
-//        return results;
-//    }
+    public int getAuthorCount() {
+        String sql = "SELECT COUNT(DISTINCT author) FROM comic";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        results.next();
+        return results.getInt(1);
+    }
 
-
+    @Override
+    public List<AuthorComicCount> getAuthorComicCount() {
+        List<AuthorComicCount> results = new ArrayList<>();
+        String sql = "SELECT author, COUNT(*) FROM comic GROUP BY author";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+        while (rowSet.next()) {
+            AuthorComicCount count = new AuthorComicCount();
+            count.setAuthor(rowSet.getString("author"));
+            count.setCount(rowSet.getInt("COUNT(*)"));
+            results.add(count);
+        }
+        return results;
+    }
 
 
     private Comic mapRowToComic(SqlRowSet rowSet) {

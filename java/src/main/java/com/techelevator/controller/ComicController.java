@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.CollectionDao;
 import com.techelevator.dao.ComicDao;
+import com.techelevator.model.AuthorComicCount;
 import com.techelevator.model.Collection;
 import com.techelevator.model.Comic;
 import org.springframework.http.HttpStatus;
@@ -55,19 +56,17 @@ public class ComicController {
         return comicDao.getComicCount();
     }
 
-//    @RequestMapping(path = "/authorComicCount", method = RequestMethod.GET)
-//    public List<Map<String, Object>> getAuthorComicCount() {
-//        List<Map<String, Object>> results = new ArrayList<>();
-//        String sql = "SELECT author, COUNT(*) FROM comic GROUP BY author";
-//        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
-//        while (rowSet.next()) {
-//            Map<String, Object> row = new HashMap<>();
-//            row.put("author", rowSet.getString("author"));
-//            row.put("COUNT(*)", rowSet.getInt("COUNT(*)"));
-//            results.add(row);
-//        }
-//        return results;
-//    }
+    @RequestMapping(path = "/author/count", method = RequestMethod.GET)
+    public int getAuthorCount() {
+        return comicDao.getAuthorCount();
+    }
+
+    @RequestMapping(path = "/authorComicCount", method = RequestMethod.GET)
+    @ResponseStatus(HttpStatus.OK)
+    @ResponseBody
+    public List<AuthorComicCount> getAuthorComicCount() {
+        return comicDao.getAuthorComicCount();
+    }
 
 
 

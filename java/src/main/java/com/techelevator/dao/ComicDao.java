@@ -2,7 +2,7 @@ package com.techelevator.dao;
 
 import com.techelevator.model.Collection;
 import com.techelevator.model.Comic;
-
+import com.techelevator.model.AuthorComicCount;
 import java.util.List;
 import java.util.Map;
 
@@ -24,7 +24,11 @@ public interface ComicDao {
 
     int getComicCount();
 
-//    List<Map<String, Object>> getAuthorComicCount();
+    public int getAuthorCount();
+
+    List<AuthorComicCount> getAuthorComicCount();
+
+
 
 
 
