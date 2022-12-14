@@ -24,7 +24,7 @@ public interface ComicDao {
 
     int getComicCount();
 
-    List<Map<String, Object>> getAuthorComicCount();
+//    List<Map<String, Object>> getAuthorComicCount();
 
 
 

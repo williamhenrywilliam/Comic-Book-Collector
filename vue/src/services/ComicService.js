@@ -35,6 +35,9 @@ export default {
     return http.post('/comic', comic);
   },
   
+  getComicCount() {
+    return http.get('/comic/count');
+  }
 
   
 }

@@ -112,19 +112,19 @@ public class JbdcComicDao implements ComicDao {
         return count;
     }
 
-    @Override
-    public List<Map<String, Object>> getAuthorComicCount() {
-        List<Map<String, Object>> results = new ArrayList<>();
-        String sql = "SELECT author, COUNT(*) FROM comic GROUP BY author";
-        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
-        while (rowSet.next()) {
-            Map<String, Object> row = new HashMap<>();
-            row.put("author", rowSet.getString("author"));
-            row.put("COUNT(*)", rowSet.getInt("COUNT(*)"));
-            results.add(row);
-        }
-        return results;
-    }
+//    @Override
+//    public List<Map<String, Object>> getAuthorComicCount() {
+//        List<Map<String, Object>> results = new ArrayList<>();
+//        String sql = "SELECT author, COUNT(*) FROM comic GROUP BY author";
+//        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+//        while (rowSet.next()) {
+//            Map<String, Object> row = new HashMap<>();
+//            row.put("author", rowSet.getString("author"));
+//            row.put("COUNT(*)", rowSet.getInt("COUNT(*)"));
+//            results.add(row);
+//        }
+//        return results;
+//    }
 
 
 
