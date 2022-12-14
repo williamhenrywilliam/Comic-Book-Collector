@@ -37,6 +37,11 @@ public class CollectionController {
         return collectionDao.getCollectionByUserId(userId);
     }
 
+    @RequestMapping(path = "/count", method = RequestMethod.GET)
+    public int getCollectionCount() {
+        return collectionDao.getCollectionCount();
+    }
+
 
 
 

@@ -4,6 +4,7 @@ import com.techelevator.model.Collection;
 import com.techelevator.model.Comic;
 
 import java.util.List;
+import java.util.Map;
 
 public interface ComicDao {
 
@@ -20,6 +21,12 @@ public interface ComicDao {
     Comic createComic(Comic comic);
 
     List<Comic> findAllComicsByCollectionId(int collectionId);
+
+    int getComicCount();
+
+    List<Map<String, Object>> getAuthorComicCount();
+
+
 
 
 

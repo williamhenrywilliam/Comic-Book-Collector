@@ -71,6 +71,17 @@ public class JdbcCollectionDao implements CollectionDao {
         }
         return collections;
     }
+// statistics start here
+    @Override
+    public int getCollectionCount() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM collection";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        if (results.next()) {
+            count = results.getInt(1);
+        }
+        return count;
+    }
 
 
     private Collection mapRowToCollection(SqlRowSet rs) {

@@ -7,7 +7,9 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Component
 public class JbdcComicDao implements ComicDao {
@@ -92,6 +94,39 @@ public class JbdcComicDao implements ComicDao {
         }
     }
 
+    @Override
+    public Comic createComic(Comic comic) {
+        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id, comic_image) VALUES (?, ?, ?, ?, ?) returning comic_id";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId(), comic.getImageURL());
+        return getComicById(newId);
+    }
+//statistics start here
+    @Override
+    public int getComicCount() {
+        int count = 0;
+        String sql = "SELECT COUNT(*) FROM comic";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        if (results.next()) {
+            count = results.getInt(1);
+        }
+        return count;
+    }
+
+    @Override
+    public List<Map<String, Object>> getAuthorComicCount() {
+        List<Map<String, Object>> results = new ArrayList<>();
+        String sql = "SELECT author, COUNT(*) FROM comic GROUP BY author";
+        SqlRowSet rowSet = jdbcTemplate.queryForRowSet(sql);
+        while (rowSet.next()) {
+            Map<String, Object> row = new HashMap<>();
+            row.put("author", rowSet.getString("author"));
+            row.put("COUNT(*)", rowSet.getInt("COUNT(*)"));
+            results.add(row);
+        }
+        return results;
+    }
+
+
 
 
     private Comic mapRowToComic(SqlRowSet rowSet) {
@@ -105,12 +140,7 @@ public class JbdcComicDao implements ComicDao {
        return comic;
     }
 
-    @Override
-    public Comic createComic(Comic comic) {
-        String sql = "INSERT INTO comic (comic_name, author, release_date, collection_id, comic_image) VALUES (?, ?, ?, ?, ?) returning comic_id";
-        int newId = jdbcTemplate.queryForObject(sql, int.class, comic.getComicName(), comic.getAuthor(), comic.getReleaseDate(),comic.getCollectionId(), comic.getImageURL());
-        return getComicById(newId);
-    }
+
 
 
 }
