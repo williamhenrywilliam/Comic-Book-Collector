@@ -60,3 +60,5 @@ div.selected-collection-comics {
   flex-wrap: wrap;
 }
 </style>
+
+

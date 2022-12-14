@@ -48,12 +48,18 @@ public class JdbcCollectionDao implements CollectionDao {
 
     @Override
     public Collection createCollection(Collection collection) {
-        String sql = "INSERT INTO collection (collection_name) VALUES (?) returning collection_id";
-        int newId = jdbcTemplate.queryForObject(sql, int.class, collection.getCollectionName());
+        String sql = "INSERT INTO collection (collection_name, user_id) VALUES (?, ?) returning collection_id";
+        int newId = jdbcTemplate.queryForObject(sql, int.class, collection.getCollectionName(), collection.getUserId());
         return getCollectionById(newId);
     }
 
-    /*@Override
+
+    @Override
+    public Collection linkUserId(Collection collection) {
+        return null;
+    }
+
+    @Override
     public List<Collection> getCollectionByUserId(int userId) {
         List<Collection> collections = new ArrayList<>();
         String sql = "SELECT * FROM collection WHERE user_id = ?";
@@ -64,14 +70,14 @@ public class JdbcCollectionDao implements CollectionDao {
             collections.add(collection);
         }
         return collections;
-    }*/
+    }
 
 
     private Collection mapRowToCollection(SqlRowSet rs) {
         Collection collection = new Collection();
         collection.setCollectionId(rs.getInt("collection_id"));
         collection.setCollectionName(rs.getString("collection_name"));
-        /*collection.setUserId(rs.getInt("user_id"));*/
+        collection.setUserId(rs.getInt("user_id"));
         return collection;
     }
 

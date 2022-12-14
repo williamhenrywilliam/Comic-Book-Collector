@@ -33,7 +33,7 @@ export default {
 
   addComicToACollection(comic){
     return http.post('/comic', comic);
-  }
+  },
   
 
   
