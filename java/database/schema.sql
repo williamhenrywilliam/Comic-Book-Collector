@@ -44,3 +44,5 @@ CONSTRAINT collection_id FOREIGN KEY (collection_id)
 );
 
 COMMIT TRANSACTION;
+
+

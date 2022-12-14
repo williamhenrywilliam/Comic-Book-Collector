@@ -7,16 +7,14 @@
 
     <div id="collections">
       <h2>View Your Collections Below</h2>
+      <comic-book-collection-user />
       
       <form v-on:submit.prevent="createCollection" >
         <button>Create New Collection</button>
         <input type="text" placeholder="new collection name..." v-model="newCollection"/>
       </form>
       
-      <div v-for="collection in userCollections" v-bind:key="collection.name">
-        {{collection.collectionName}}
-        <comic-book-collection-user />
-      </div>
+      
     </div>
 
   </div>
@@ -24,13 +22,14 @@
 
 <script>
 
-import ComicBookCollectionUser from '../components/ComicBookCollectionUser.vue'
+
 import ComicService from '../services/ComicService'
+import ComicBookCollectionUser from '../components/ComicBookCollectionUser.vue'
 
 export default {
   components: { 
+    ComicBookCollectionUser,
     
-    ComicBookCollectionUser
   },
     name: 'profile',
     data() {
@@ -101,3 +100,6 @@ export default {
   border: 5px solid black;
 }
 </style>
+
+
+
