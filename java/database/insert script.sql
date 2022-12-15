@@ -10,5 +10,5 @@ INSERT INTO public.comic(
 
 
 INSERT INTO public.collection(
-	collection_id, collection_name)
-	VALUES (?, ?);
+	collection_id, collection_name, user_id)
+	VALUES (?, ?, ?);
