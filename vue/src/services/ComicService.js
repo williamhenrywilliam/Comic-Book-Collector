@@ -39,6 +39,10 @@ export default {
     return http.get('/comic/count');
   },
 
+  getUserCount(){
+    return http.get('/user/count')
+  }
+
   
 
   

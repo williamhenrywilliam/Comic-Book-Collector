@@ -61,7 +61,7 @@ header {
 
 main {
   grid-area: main;
-  background-color: crimson;
+  background: linear-gradient(135deg, rgba(0,0,0,1) 0%, rgba(247,28,28,1) 14%, rgba(235,16,12,1) 87%, rgba(15,5,2,1) 99%);
 }
 
 footer {

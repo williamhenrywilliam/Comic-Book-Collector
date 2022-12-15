@@ -12,11 +12,11 @@
         <button>Create New Collection</button>
         <input type="text" placeholder="new collection name..." v-model="newCollection"/>
       </form>
-      
+      <!--
       <div v-for="collection in userCollections" v-bind:key="collection.name">
-        {{collection.collectionName}}
+        {{collection.collectionName}} -->
         <comic-book-collection-user />
-      </div>
+      <!--</div>-->
     </div>
 
   </div>
