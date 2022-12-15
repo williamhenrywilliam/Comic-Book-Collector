@@ -20,6 +20,7 @@
     </div>
 
     <div class="featured-collection">
+      
       <h2>Check out these featured Collections!</h2>
       <comic-book-collection />
     </div>

@@ -12,24 +12,35 @@
 import ComicBookCard from './ComicBookCard.vue'
 
 export default {
-    data(){
-      return {
-        comicsDB: []
+  data() {
+    return {
+      collectionId: 1,
+      intervalId: null,
+    }
+  },
+  name: 'comic-book-collection',
+  components: {
+    ComicBookCard
+  },
+  mounted() {
+    this.$store.dispatch("getAllComics");
+
+    this.intervalId = setInterval(() => {
+      this.collectionId += 1;
+      if (this.collectionId > 8) {
+        this.collectionId = 1;
       }
-    },
-    name: 'comic-book-collection',
-    components: { 
-        ComicBookCard
-    },
-    mounted(){
-      this.$store.dispatch("getAllComics");
-    },
-    computed: {
-    featuredCollection(){
+    }, 10000);
+  },
+  destroyed() {
+    clearInterval(this.intervalId);
+  },
+  computed: {
+    featuredCollection() {
       return this.$store.state.comicsDB.filter((comic) => {
-        return comic.collectionId === 1;
-      }) 
-    },
+        return comic.collectionId === this.collectionId;
+      });
+    }
   }
 }
 </script>
