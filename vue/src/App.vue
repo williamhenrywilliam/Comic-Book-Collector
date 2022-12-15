@@ -46,6 +46,7 @@ export default {
     "main"
     "footer"
     ;
+  
 }
 
 header {

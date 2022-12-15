@@ -70,6 +70,12 @@ div.selected-collection-comics {
   display: flex;
   flex-wrap: wrap;
 }
+
+div label {
+  font-family: monospace, serif;
+}
+
+
 </style>
 
 

@@ -1,8 +1,10 @@
 <template>
   <div id="profile">
     
-    <div id="profile-title">
-      <h1>Welcome, {{user.username}}!</h1>
+    <div class="title-wrapper">
+      <div class="comics-title-container">
+        <h1 class="comics-title">{{user.username}}'s Profile Page</h1>
+      </div>
     </div>
 
     <div id="collections">
@@ -12,11 +14,9 @@
         <button>Create New Collection</button>
         <input type="text" placeholder="new collection name..." v-model="newCollection"/>
       </form>
-      <!--
-      <div v-for="collection in userCollections" v-bind:key="collection.name">
-        {{collection.collectionName}} -->
-        <comic-book-collection-user />
-      <!--</div>-->
+      
+      <comic-book-collection-user />
+      
     </div>
   </div>
 </template>
@@ -94,6 +94,11 @@ export default {
 
 #collections {
   border: 5px solid black;
+  
+}
+
+#collections h2 {
+  font-family: monospace, serif;
 }
 
 
