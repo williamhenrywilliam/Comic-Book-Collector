@@ -68,9 +68,15 @@ public class ComicController {
         return comicDao.getAuthorComicCount();
     }
 
-
-
+    @RequestMapping(path = "/collection/{id}/count", method = RequestMethod.GET)
+    public int getComicCountByCollectionId(@PathVariable int id) {
+        return comicDao.getComicCountByCollectionId(id);
+    }
 }
+
+
+
+
 
 //@RequestMapping(path = "/comicname", method = RequestMethod.GET)
 //public Comic comic{return comicDao.findByComicName();}

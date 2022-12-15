@@ -28,6 +28,8 @@ public interface ComicDao {
 
     List<AuthorComicCount> getAuthorComicCount();
 
+    int getComicCountByCollectionId(int collectionId);
+
 
 
 
