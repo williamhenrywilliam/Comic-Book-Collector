@@ -20,6 +20,7 @@ DROP TABLE IF EXISTS collection;
 CREATE TABLE collection (
 collection_id SERIAL,
 collection_name varchar (100) NOT NULL UNIQUE,
+user_id integer,
 CONSTRAINT PK_collection PRIMARY KEY (collection_id),
 CONSTRAINT collection_collection_name_key UNIQUE (collection_name)
 );

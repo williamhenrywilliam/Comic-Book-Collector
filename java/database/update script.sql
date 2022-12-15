@@ -10,5 +10,5 @@ UPDATE public.comic
 
 
 UPDATE public.collection
-	SET collection_id=?, collection_name=?
+	SET collection_id=?, collection_name=?, user_id=?
 	WHERE <condition>;
