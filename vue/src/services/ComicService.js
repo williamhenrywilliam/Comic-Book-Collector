@@ -39,9 +39,19 @@ export default {
     return http.get('/comic/count');
   },
 
-  getUserCount(){
-    return http.get('/user/count')
+  getUsersCount(){
+    return http.get('/users/count')
+  },
+
+  getCollectionCount() {
+    return http.get('/collection/count');
+  },
+
+  getAuthorCount() {
+    return http.get('/comic/author/count');
   }
+
+
 
   
 

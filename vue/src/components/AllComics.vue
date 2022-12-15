@@ -2,7 +2,8 @@
   <div id="all-comics">
 
     <div id="search-bar">
-      <input type="text" placeholder="Search Comics..." v-model="searchText" />
+      <label for="comics-search-bar">Search for your favorite comics by Title or Author name!</label>
+      <input type="text" id="comics-search-bar" placeholder="Search Comics..." v-model="searchText" />
     </div>
     
     <div id="comics-container">
@@ -146,7 +147,22 @@ span.comic:hover {
 
 span > form {
   margin-top: 20px;
+}
+
+#search-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#search-bar label {
+  font-size: 2rem;
+  font-family: monospace, serif;
+  color: seashell;
+}
+
+#comics-search-bar{
   
+  width: 300px;
 }
 </style>
 
