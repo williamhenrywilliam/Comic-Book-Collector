@@ -2,7 +2,8 @@
   <div id="all-comics">
 
     <div id="search-bar">
-      <input type="text" placeholder="Search Comics..." v-model="searchText" />
+      <label for="comics-search-bar">Search for your favorite comics by Title or Author name!</label>
+      <input type="text" id="comics-search-bar" placeholder="Search Comics..." v-model="searchText" />
     </div>
     
     <div id="comics-container">
@@ -48,11 +49,9 @@ export default {
   },
   created(){
   ComicService.getAllComics().then(response =>{
-    this.comics = response.data.map((comic, index) => {
+    this.comics = response.data.map((comic) => {
       let imageUrl = "";
-      if (index % 3 === 0) {
-        imageUrl = "https://i.annihil.us/u/prod/marvel/i/mg/d/f0/62d0452848928/portrait_xlarge.jpg";
-      } //TODO
+     //TODO
       return {...comic, flipped: false, image: imageUrl};
       });
     })
@@ -69,24 +68,22 @@ export default {
   },
   mounted(){
       this.$store.dispatch("getAllCollections");
+      this.userCollections = this.$store.state.collections;
   },
   methods: {
-    addComicToACollection(comic, id){
+     addComicToACollection(comic, id) {
+   
+    const newComic = comic;
+    newComic.collectionId = id;
 
-      /*
-      const newComic = {
-        comicName: "Test Name2",
-        author: "Test Author2",
-        releaseDate: "2000-01-02",
-        collectionId: 5,
-        imageURL: "Test URL String2"
-     }
-     ComicService.addComicToACollection(newComic);
-      */
-      const newComic = comic;
-      newComic.collectionId = id;
-      ComicService.addComicToACollection(newComic);
-      location.reload();
+   
+    this.$store.commit("addComicToACollection", newComic);
+    
+    
+    ComicService.addComicToACollection(newComic)
+      .then(() => {
+        this.$store.dispatch("getAllCollections");
+      });
     },
     switchCollectionId(event){
       this.selectedCollectionId = event.target.value;
@@ -146,7 +143,22 @@ span.comic:hover {
 
 span > form {
   margin-top: 20px;
+}
+
+#search-bar {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#search-bar label {
+  font-size: 2rem;
+  font-family: monospace, serif;
+  color: seashell;
+}
+
+#comics-search-bar{
   
+  width: 300px;
 }
 </style>
 

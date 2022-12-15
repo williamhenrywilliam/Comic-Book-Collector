@@ -7,7 +7,12 @@
     </div>
 
     <div class="statistics">
-      <p>Our Website has {{comicCount}} Comics!</p>
+      <ul>
+        <li>Our Website has {{comicCount}} Comics! THIS NEEDS TO BE FIXED</li>
+        <li>Our Website has {{usersCount}} current Users! Get in on the ground floor while you still can!</li>
+        <li>Our Website has {{collectionCount}} different collections! Such Variety!</li>
+        <li>Our Website has comics from {{authorCount}} different authors!</li>
+      </ul>
     </div>
     
     <div class="picture">
@@ -15,6 +20,7 @@
     </div>
 
     <div class="featured-collection">
+      <h2>Check out these featured Collections!</h2>
       <comic-book-collection />
     </div>
     
@@ -31,13 +37,25 @@ export default {
   },
   data(){
     return{
-      comicCount: ""
+      comicCount: "",
+      usersCount: "",
+      collectionCount: "",
+      authorCount: ""
     }
   },
   name: "home",
   created(){
     ComicService.getComicCount().then((response) => {
       this.comicCount = response.data
+    }),
+    ComicService.getUsersCount().then((response) => {
+      this.usersCount = response.data
+    }),
+    ComicService.getCollectionCount().then((response) => {
+      this.collectionCount = response.data
+    }),
+    ComicService.getAuthorCount().then((response) => {
+      this.authorCount = response.data
     })
   },
   //TO Be DELETED vv
@@ -91,9 +109,10 @@ div.picture {
 
 div.featured-collection {
   grid-area: featured-collection;
-  border-bottom: 1px solid white;
+  border: 1px solid white;
   margin: 10px 10px 10px 10px;
   font-family: monospace, serif;
+
 
 }
 

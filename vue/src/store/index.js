@@ -80,6 +80,7 @@ export default new Vuex.Store({
       state.comicCount = comicCountPayload;
     }
     
+    
   },
   actions:{
     getAllCollections (context) {

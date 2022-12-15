@@ -20,7 +20,6 @@ public interface ComicDao {
 
     Comic createComic(Comic comic);
 
-    List<Comic> findAllComicsByCollectionId(int collectionId);
 
     int getComicCount();
 
@@ -29,6 +28,8 @@ public interface ComicDao {
     List<AuthorComicCount> getAuthorComicCount();
 
     int getComicCountByCollectionId(int collectionId);
+
+    List<Comic> findComicsByCollectionId(int collectionId);
 
 
 

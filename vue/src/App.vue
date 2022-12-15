@@ -55,7 +55,8 @@ header {
   align-items: center;
   background: radial-gradient(circle, rgba(5,6,3,1) 9%, rgba(20,39,130,1) 83%, rgba(30,60,210,1) 93%);
   font-family: monospace, serif;
-  height: 3rem;
+  /*height: 3rem;*/
+  height: 5vh
   
 }
 
@@ -70,9 +71,9 @@ footer {
   align-items: center;
   background: radial-gradient(circle, rgba(30,60,210,1) 0%, rgba(5,6,3,1) 100%);
   width: 100%;
-  height: 5rem;
- font-family: monospace, serif;
-
+  /*height: 5rem;*/
+  height: 7vh;
+  font-family: monospace, serif;
   color: #fff;
   font-size: 12px;
 }
