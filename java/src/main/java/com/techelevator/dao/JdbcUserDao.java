@@ -82,6 +82,14 @@ public class JdbcUserDao implements UserDao {
         return jdbcTemplate.update(insertUserSql, username, password_hash, ssRole) == 1;
     }
 
+    @Override
+    public int countUsers() {
+        String sql = "SELECT COUNT(*) FROM users";
+        return jdbcTemplate.queryForObject(sql, int.class);
+    }
+
+
+
     private User mapRowToUser(SqlRowSet rs) {
         User user = new User();
         user.setId(rs.getInt("user_id"));
