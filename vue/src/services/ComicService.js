@@ -41,6 +41,10 @@ export default {
 
   getUserCount(){
     return http.get('/user/count')
+  },
+
+  getComicCountByCollectionId(id) {
+    return http.get(`/comic/collection/${id}/count`);
   }
 
   

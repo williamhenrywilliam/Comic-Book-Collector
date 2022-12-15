@@ -81,7 +81,8 @@ export default {
         } else {
           alert("A New Collection must have a name!")
         }
-      }
+      },
+      
     }
      
 }
