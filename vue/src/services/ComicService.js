@@ -49,7 +49,12 @@ export default {
 
   getAuthorCount() {
     return http.get('/comic/author/count');
-  }
+  },
+
+  getComicsInCollection(collectionId) {
+    return http.get(`/comic/collection/${collectionId}`);
+}
+
 
 
 
@@ -57,3 +62,10 @@ export default {
 
   
 }
+
+
+
+
+  
+
+  

@@ -18,7 +18,6 @@
         <comic-book-collection-user />
       <!--</div>-->
     </div>
-
   </div>
 </template>
 
@@ -55,30 +54,25 @@ export default {
     },
     methods: {
       createCollection() {
-        /*
-        NEED TO MAKE SURE THAT DATABASE HAS UNIQUE NAMES ONLY
-        sort through the collections array on the veux store, check each one's collectionName and see if it ties to newCollection. if so, we CANNOT execute the code and should dispaly a message that says "collection name already exists!"
+      // Check if the new collection has a name
+      if (this.newCollection !== "") {
+        // Create the new collection object to be added to the store
+        const newCollection = {
+          collectionName: this.newCollection
+        };
 
-        this.$store.state.find((collection) => {
-          return collection.collectionName === newCollection;
+        // Add the new collection to the store using a Vuex mutation
+        this.$store.commit("addCollection", newCollection);
 
-        }
-        
-        */
+              ComicService.createCollection(newCollection).then(() => {
+          // Dispatch a Vuex action to fetch the updated list of collections from the database
+          this.$store.dispatch("getAllCollections");
+        });
 
-        if(this.newCollection !== ""){
-          //this variable will be sent to the database
-          const newCollectionDB = {
-            collectionName: this.newCollection
-          };
 
-          //this sends to the database
-          ComicService.createCollection(newCollectionDB);
- 
-          //this resets the newCollection input to blank
-          this.newCollection = "";
-          location.reload();
-        } else {
+        // Reset the new collection input to blank
+        this.newCollection = "";
+      } else {
           alert("A New Collection must have a name!")
         }
       }
@@ -91,6 +85,7 @@ export default {
 #profile {
   display:flex;
   flex-direction: column; 
+  
 }
 
 #profile-title {
@@ -100,4 +95,7 @@ export default {
 #collections {
   border: 5px solid black;
 }
+
+
+
 </style>

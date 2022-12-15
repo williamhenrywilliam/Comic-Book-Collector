@@ -34,21 +34,7 @@ public class JbdcComicDao implements ComicDao {
         return comics;
     }
 
-    @Override
-    public List<Comic> findAllComicsByCollectionId(int collectionId) {
-        List<Comic> comics = new ArrayList<>();
 
-        String sql = "SELECT * " +
-                "FROM comic " +
-                "JOIN collection ON comic.collection_id = collection.collection_id " +
-                "WHERE collection.collection_id = ?";
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
-        while (results.next()) {
-            Comic comic = mapRowToComic(results);
-            comics.add(comic);
-        }
-        return comics;
-    }
 
 
     @Override
@@ -143,6 +129,19 @@ public class JbdcComicDao implements ComicDao {
         } else {
             return 0;
         }
+    }
+
+    @Override
+    public List<Comic> findComicsByCollectionId(int collectionId) {
+        List<Comic> comics = new ArrayList<>();
+
+        String sql = "SELECT * FROM comic WHERE collection_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
+        while (results.next()) {
+            Comic comic = mapRowToComic(results);
+            comics.add(comic);
+        }
+        return comics;
     }
 
 

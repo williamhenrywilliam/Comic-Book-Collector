@@ -49,11 +49,9 @@ export default {
   },
   created(){
   ComicService.getAllComics().then(response =>{
-    this.comics = response.data.map((comic, index) => {
+    this.comics = response.data.map((comic) => {
       let imageUrl = "";
-      if (index % 3 === 0) {
-        imageUrl = "https://i.annihil.us/u/prod/marvel/i/mg/d/f0/62d0452848928/portrait_xlarge.jpg";
-      } //TODO
+     //TODO
       return {...comic, flipped: false, image: imageUrl};
       });
     })
@@ -70,24 +68,22 @@ export default {
   },
   mounted(){
       this.$store.dispatch("getAllCollections");
+      this.userCollections = this.$store.state.collections;
   },
   methods: {
-    addComicToACollection(comic, id){
+     addComicToACollection(comic, id) {
+   
+    const newComic = comic;
+    newComic.collectionId = id;
 
-      /*
-      const newComic = {
-        comicName: "Test Name2",
-        author: "Test Author2",
-        releaseDate: "2000-01-02",
-        collectionId: 5,
-        imageURL: "Test URL String2"
-     }
-     ComicService.addComicToACollection(newComic);
-      */
-      const newComic = comic;
-      newComic.collectionId = id;
-      ComicService.addComicToACollection(newComic);
-      location.reload();
+   
+    this.$store.commit("addComicToACollection", newComic);
+    
+    
+    ComicService.addComicToACollection(newComic)
+      .then(() => {
+        this.$store.dispatch("getAllCollections");
+      });
     },
     switchCollectionId(event){
       this.selectedCollectionId = event.target.value;

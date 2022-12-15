@@ -23,6 +23,7 @@ import ComicBookCard from "./ComicBookCard.vue"
 
 export default {
   name: 'comic-book-collection-user',
+  props:['collection'],
   components: {
     ComicBookCard
   },
