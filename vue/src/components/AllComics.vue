@@ -2,7 +2,7 @@
   <div id="all-comics">
 
     <div id="search-bar">
-      <label for="comics-search-bar">Search for your favorite comics by Title or Author name!</label>
+      <label for="comics-search-bar">Search for your favorite comics by Title or Author!</label>
       <input type="text" id="comics-search-bar" placeholder="Search Comics..." v-model="searchText" />
     </div>
     
@@ -129,12 +129,11 @@ span.comic {
   margin-bottom: 50px;
 }
 
-/* Commenting this out until we figure out the structure of the add comic button
-span.comic:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-*/
+
+  .comic:hover {
+    box-shadow: 0 0 20px 10px #2F4858;
+  }
+
 
 #comic-details {
   display: flex;

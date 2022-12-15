@@ -81,7 +81,7 @@ export default {
 }
 </script>
 
-<style>
+<style >
 #profile {
   display:flex;
   flex-direction: column; 
@@ -95,6 +95,7 @@ export default {
 #collections {
   border: 5px solid black;
 }
+
 
 
 
