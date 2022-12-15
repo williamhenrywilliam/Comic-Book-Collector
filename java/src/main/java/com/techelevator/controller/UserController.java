@@ -47,6 +47,12 @@ public class UserController {
     @RequestMapping(value = "/username/{username}", method = RequestMethod.GET)
     public int findIdByUsername(@PathVariable String username){return userDao.findIdByUsername(username);}
 
+
+    @RequestMapping(path = "/count", method = RequestMethod.GET)
+    public int countUsers() {
+        return userDao.countUsers();
+    }
+
     /*@RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public User findByUsername(@PathVariable String username){return userDao.findByUsername((username));}*/
 
