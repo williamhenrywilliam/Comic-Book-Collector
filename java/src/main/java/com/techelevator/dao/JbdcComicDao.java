@@ -134,6 +134,17 @@ public class JbdcComicDao implements ComicDao {
         return results;
     }
 
+    @Override
+    public int getComicCountByCollectionId(int collectionId) {
+        String sql = "SELECT COUNT(*) FROM collection JOIN comic ON collection.collection_id = comic.collection_id WHERE collection.collection_id = ?";
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, collectionId);
+        if (results.next()) {
+            return results.getInt(1);
+        } else {
+            return 0;
+        }
+    }
+
 
     private Comic mapRowToComic(SqlRowSet rowSet) {
         Comic comic = new Comic();
