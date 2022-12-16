@@ -161,6 +161,11 @@ font-family: monospace, serif;
 text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
+.picture > img:hover {
+    box-shadow: 0 0 20px 10px #2F4858;
+  }
+
+
 
 </style>
 
