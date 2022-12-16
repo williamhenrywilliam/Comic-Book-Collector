@@ -8,14 +8,15 @@
     </div>
 
     <div id="collections">
-      <h2>View Your Collections Below</h2>
-      
-      <form v-on:submit.prevent="createCollection" >
-        <button>Create New Collection</button>
-        <input type="text" placeholder="new collection name..." v-model="newCollection"/>
-      </form>
+      <h2>View Your Collections Below:</h2>
       
       <comic-book-collection-user />
+
+      <form v-on:submit.prevent="createCollection" >
+        <label class="profile-page-label" for="create-new-collection-input">Want to add a new collection to your profile?</label>
+        <input id="create-new-collection-input" type="text" placeholder="new collection name..." v-model="newCollection"/>
+        <button>Create New Collection</button>
+      </form>
       
     </div>
   </div>
@@ -99,9 +100,16 @@ export default {
 
 #collections h2 {
   font-family: monospace, serif;
+  text-align: center;
 }
 
+#collections form {
+  font-size: 1.5rem;
+  padding: 10px 10px 10px 10px;
+}
 
-
+label.profile-page-label {
+  font-family: monospace, serif;
+}
 
 </style>
