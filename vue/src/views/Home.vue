@@ -8,6 +8,7 @@
     </div>
 
     <div class="statistics">
+      <h2>Site Statistics</h2>
       <ul>
         <li>Our Website has 100 Comics!  <img src="https://static.thenounproject.com/png/7433-200.png" alt="comic book icon" class="comic-book-icon" /></li>
         <li>Our Website has {{usersCount}} current Users! Get in on the ground floor while you still can! <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" alt="comic book icon" class="comic-book-icon" /></li>
@@ -101,7 +102,7 @@ div.title {
 
 div.statistics {
   grid-area: statistics;
-  border: 2px solid white;
+  border: 2px solid black;
   margin: 10px 10px 10px 10px;
   font-family: monospace, serif;
 
@@ -110,17 +111,20 @@ div.statistics {
 div.picture {
   grid-area: picture;
   margin: 10px 10px 10px 10px;
+  border: 2px solid black;
 }
 
 div.featured-collection {
   grid-area: featured-collection;
-  border: 1px solid white;
+  
   margin: 10px 10px 10px 10px;
   font-family: monospace, serif;
+   border: 2px solid black;
 }
 
 div.featured-collection h2 {
   text-align: center;
+ 
 }
 
 /* this will style the image itself. currently it is centering the image. might not be necessary*/
@@ -133,7 +137,7 @@ div.picture img {
 
 div.statistics {
   grid-area: statistics;
-  border: 2px solid white;
+  
   margin: 10px 10px 10px 10px;
   font-family: monospace, serif;
   display: flex;
@@ -156,6 +160,7 @@ li {
 margin: 10px 0;
 padding: 10px 0;
 list-style-type: none;
+margin-right: 210px;
 }
 
 h2 {
@@ -167,6 +172,14 @@ text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 .picture > img:hover {
     box-shadow: 0 0 20px 10px #2F4858;
   }
+
+  .statistics {
+  background-image: url('https://4kwallpapers.com/images/wallpapers/spider-man-marvel-superheroes-red-background-marvel-comics-2560x2560-7494.jpg');
+  background-size: cover;
+  background-position: left;
+  color: #fff;
+  
+}
 
 
 
