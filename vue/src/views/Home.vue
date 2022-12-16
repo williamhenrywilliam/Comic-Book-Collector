@@ -131,13 +131,6 @@ div.picture img {
   width: 75%;
 }
 
-<<<<<<< HEAD
-div.statistics li {
-  font-size: 1.1rem;
-  padding-bottom: 40px;
-  
-}
-=======
 div.statistics {
   grid-area: statistics;
   border: 2px solid white;
@@ -172,6 +165,5 @@ text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
 
->>>>>>> 58500c40d9db1a800651e125d1b96a9e6f50795e
 </style>
 
