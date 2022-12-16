@@ -104,6 +104,7 @@ form.form-register{
     color: #fff;
     font-family: monospace, serif;
     letter-spacing: 0.05em;
+    height: 948px;
 }
 
 h1{

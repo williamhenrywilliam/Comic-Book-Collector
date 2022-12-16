@@ -63,7 +63,9 @@ export default {
       })
     },
     userCollections(){
-      return this.$store.state.collections;
+      return this.$store.state.collections.filter((collection) => {
+        return collection.collectionId >8;
+      });
     }
   },
   mounted(){

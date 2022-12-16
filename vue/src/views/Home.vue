@@ -1,9 +1,10 @@
 <template>
   <div class="home">
     
-    <div class="title">
-      <h1>Welcome to the best comic website!!</h1>
-      <p>You must be authenticated to see this</p>
+    <div class="title-wrapper title">
+      <div class="comics-title-container">
+        <h1 class="comics-title">Welcome!</h1>
+      </div>
     </div>
 
     <div class="statistics">
@@ -91,11 +92,11 @@ div.title {
   grid-area: title;
   text-align: center;
   border-bottom: 1px solid white;
-  margin: 10px 10px 10px 10px;
+  margin-bottom: 10px;
   color: black;
   font-family: monospace, serif;
   font-size: 20px;
-
+  height: 200px;
 }
 
 div.statistics {
@@ -116,8 +117,10 @@ div.featured-collection {
   border: 1px solid white;
   margin: 10px 10px 10px 10px;
   font-family: monospace, serif;
+}
 
-
+div.featured-collection h2 {
+  text-align: center;
 }
 
 /* this will style the image itself. currently it is centering the image. might not be necessary*/
