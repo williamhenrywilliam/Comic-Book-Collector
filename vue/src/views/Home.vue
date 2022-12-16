@@ -9,7 +9,7 @@
 
     <div class="statistics">
       <ul>
-        <li>Our Website has {{comicCount}} Comics!  <img src="https://static.thenounproject.com/png/7433-200.png" alt="comic book icon" class="comic-book-icon" /></li>
+        <li>Our Website has 100 Comics!  <img src="https://static.thenounproject.com/png/7433-200.png" alt="comic book icon" class="comic-book-icon" /></li>
         <li>Our Website has {{usersCount}} current Users! Get in on the ground floor while you still can! <img src="https://cdn-icons-png.flaticon.com/512/33/33308.png" alt="comic book icon" class="comic-book-icon" /></li>
         <li>Our Website has {{collectionCount}} different collections! Such Variety! <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8e/Bimetrical_icon_folder_black.svg/1024px-Bimetrical_icon_folder_black.svg.png" alt="comic book icon" class="comic-book-icon" /></li>
         <li>Our Website has comics from {{authorCount}} different authors! <img src="https://camo.githubusercontent.com/a50d5bd3ee846fc94720056bf6db040681809512df69e8764fe5406f5ed8b462/68747470733a2f2f662e636c6f75642e6769746875622e636f6d2f6173736574732f363132303433312f313639333233352f62373337366163382d356538622d313165332d393135382d6661313961313263663133612e706e67" alt="comic book icon" class="comic-book-icon" /></li>
